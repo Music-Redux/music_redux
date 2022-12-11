@@ -5,7 +5,7 @@ import axios from "axios";
 export const getReviews = createAsyncThunk(
   "reviewSlice/getReviews",
   async () => {
-    return axios
+    return await axios
       .get("http://127.0.0.1:8000/api/reviews")
       .then((res) => res.data)
       .catch((error) => console.log(error));

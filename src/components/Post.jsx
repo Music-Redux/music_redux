@@ -1,21 +1,29 @@
+/* eslint-disable */
+
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsers } from "../redux/fromDB/userSlice";
-export const Post = ({ post }) => {
-  const user = useSelector((state) =>
-    state.Users?.data?.data.find((user) => user.id === post.user_id)
-  );
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUsers());
-  }, []);
-
-  console.log(post);
-  console.log(user);
+import { CommentForm } from "./CommentForm";
+// import { Comments } from "./Comments.jsx";
+export const Post = ({ post, users }) => {
+  const user = users.find((usr) => usr.id === post.user_id);
+  // console.log(user);
+  // console.log(post);
   return (
     <>
-      <p className="text-white">post</p>
+      <div className="w-full bg-black m-5">
+        post
+        <p className="text-white">{post?.description}</p>
+        <img
+          //u can read the image like this
+          // src={`data:image/jpeg;base64,${user.avatar}`}
+          src={user?.avatar}
+          width="50%"
+          alt=""
+        />
+        {/* <Comments postId={post?.id} /> */}
+        <CommentForm postId={post?.id} />
+      </div>
     </>
   );
 };
