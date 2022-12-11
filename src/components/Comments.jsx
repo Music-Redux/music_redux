@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-export const Comments = ({ postId }) => {
+export const Comments = ({ postId, comment }) => {
   const post_id = parseInt(postId);
   const [comments, setComments] = useState();
   const config = {
@@ -13,20 +13,20 @@ export const Comments = ({ postId }) => {
   useEffect(() => {
     axios(config)
       .then(function (response) {
-        // console.log(response.data.data);
+        console.log(response.data.data);
         setComments(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  }, [comment]);
 
   return (
     <div>
       {comments?.map((com, i) => {
         return (
           <div key={i} className="text-white">
-            comment
+            {com.comment}
           </div>
         );
       })}

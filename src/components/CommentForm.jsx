@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Comments } from "./Comments.jsx";
 
 export const CommentForm = ({ postId }) => {
   const post_id = parseInt(postId);
@@ -21,6 +22,7 @@ export const CommentForm = ({ postId }) => {
   };
 
   const handleCreateComment = (e) => {
+    let comm = document.getElementById("comment");
     e.preventDefault();
     axios(config)
       .then(function (response) {
@@ -29,25 +31,32 @@ export const CommentForm = ({ postId }) => {
       .catch(function (error) {
         console.log(error);
       });
+    setComment("");
+    comm.value = "";
   };
   return (
-    <form
-      onSubmit={(e) => {
-        handleCreateComment(e);
-      }}
-    >
-      <input
-        type="texet"
-        name="description"
-        placeholder="Write a comment"
-        className="w-3/4 p-3 rounded outline"
-        onChange={(e) => {
-          setComment(e.target.value);
+    <>
+      <Comments postId={post_id} comment={comment} />
+      <form
+        onSubmit={(e) => {
+          handleCreateComment(e);
         }}
-      />
-      <button type="submit" className="text-white mx-5">
-        comment
-      </button>
-    </form>
+      >
+        <input
+          type="texet"
+          id="comment"
+          name="comment"
+          placeholder="Write a comment"
+          className="w-3/4 p-3 rounded outline"
+          required
+          onChange={(e) => {
+            setComment(e.target.value);
+          }}
+        />
+        <button type="submit" className="text-white mx-5">
+          comment
+        </button>
+      </form>
+    </>
   );
 };

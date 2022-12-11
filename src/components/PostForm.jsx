@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 export const PostForm = () => {
   const [description, setDescription] = useState();
   const user_id = 2;
@@ -32,23 +31,26 @@ export const PostForm = () => {
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        handleCreatePost(e);
-      }}
-    >
-      <input
-        type="texet"
-        name="description"
-        placeholder="Post your feeling"
-        className="w-3/4 p-3 rounded outline"
-        onChange={(e) => {
-          setDescription(e.target.value);
+    <>
+      <form
+        onSubmit={(e) => {
+          handleCreatePost(e);
         }}
-      />
-      <button type="submit" className="text-white mx-5">
-        POST
-      </button>
-    </form>
+      >
+        <input
+          type="texet"
+          name="description"
+          placeholder="Post your feeling"
+          className="w-3/4 p-3 rounded outline"
+          required
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+        />
+        <button type="submit" className="text-white mx-5">
+          POST
+        </button>
+      </form>
+    </>
   );
 };
