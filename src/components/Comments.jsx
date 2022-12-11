@@ -1,9 +1,10 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 export const Comments = ({ postId }) => {
   const post_id = parseInt(postId);
   const [comments, setComments] = useState();
-  var config = {
+  const config = {
     method: "get",
     url: `http://127.0.0.1:8000/api/comments/${post_id}`,
     headers: {},
