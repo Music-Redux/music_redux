@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getUsers = createAsyncThunk("userSlice/getUsers", async () => {
+export const getPosts = createAsyncThunk("postSlice/getPosts", async () => {
   return await axios
-    .get("http://127.0.0.1:8000/api/users")
+    .get("http://127.0.0.1:8000/api/posts")
     .then((res) => res.data)
     .catch((error) => console.log(error));
 });
@@ -15,31 +15,30 @@ const initialState = {
   status: "Pending",
 };
 
-const userSlice = createSlice({
+const postSlice = createSlice({
   name: "review",
   initialState,
   reducers: {
-    createUser: (state, action) => {},
-
-    updateUser: (state, action) => {},
-    deleteUser: (state, action) => {},
+    // createPost: (state, action) => {},
+    // updatePost: (state, action) => {},
+    // deletePost: (state, action) => {},
   },
   extraReducers: {
-    [getUsers.pending]: (state) => {
+    [getPosts.pending]: (state) => {
       state.status = "Pending";
     },
 
-    [getUsers.fulfilled]: (state, action) => {
+    [getPosts.fulfilled]: (state, action) => {
       state.status = "Fulfilled";
       state.data = action.payload;
     },
 
-    [getUsers.rejected]: (state) => {
+    [getPosts.rejected]: (state) => {
       state.status = "Rejected";
     },
   },
 });
 
-export const { createUser, updateUser, deleteUser } = userSlice.actions;
+// export const { createPost, updatePost, deletePost } = postSlice.actions;
 
-export default userSlice.reducer;
+export default postSlice.reducer;

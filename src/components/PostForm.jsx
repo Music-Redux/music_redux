@@ -20,6 +20,7 @@ export const PostForm = () => {
   };
 
   const handleCreatePost = (e) => {
+    let post = document.querySelector(".post");
     e.preventDefault();
 
     axios(config)
@@ -29,6 +30,8 @@ export const PostForm = () => {
       .catch(function (error) {
         console.log(error);
       });
+    setDescription("");
+    post.value = "";
   };
 
   return (
@@ -42,7 +45,7 @@ export const PostForm = () => {
           type="texet"
           name="description"
           placeholder="Post your feeling"
-          className="w-3/4 p-3 rounded outline"
+          className="w-3/4 p-3 rounded outline post"
           required
           onChange={(e) => {
             setDescription(e.target.value);

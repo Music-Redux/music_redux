@@ -22,7 +22,7 @@ export const CommentForm = ({ postId }) => {
   };
 
   const handleCreateComment = (e) => {
-    let comm = document.getElementById("comment");
+    let comm = document.querySelector(".comment");
     e.preventDefault();
     axios(config)
       .then(function (response) {
@@ -44,10 +44,9 @@ export const CommentForm = ({ postId }) => {
       >
         <input
           type="text"
-          id="comment"
           name="comment"
           placeholder="Write a comment"
-          className="w-3/4 p-3 rounded outline"
+          className="w-3/4 p-3 rounded outline comment"
           required
           onChange={(e) => {
             setComment(e.target.value);
