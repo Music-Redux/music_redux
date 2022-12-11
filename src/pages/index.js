@@ -4,6 +4,8 @@ import ArtistDetails from './ArtistDetails';
 import SongDetails from './SongDetails';
 import Search from './Search';
 import TopCharts from './TopCharts';
+import Profile from './Profile';
+import TopChartsBar from './TopChartsBar';
 
 export {
   Discover,
@@ -12,4 +14,6 @@ export {
   ArtistDetails,
   SongDetails,
   TopCharts,
+  TopChartsBar,
+  Profile,
 };

@@ -6,6 +6,7 @@ import {
   HiOutlineMenu,
   HiOutlineUserGroup,
   HiChat,
+  HiUser
 } from "react-icons/hi";
 import { RiCloseLine } from "react-icons/ri";
 
@@ -17,6 +18,7 @@ const links = [
   { name: "Top Charts", to: "/top-charts", icon: HiOutlineHashtag },
   { name: "Blog", to: "/blog", icon: HiChat },
   { name: "About", to: "/about", icon: HiChat },
+  { name: "Profile", to: "/profile", icon: HiUser },
 ];
 
 const NavLinks = ({ handleClick }) => (
