@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Posts } from "../components/Posts";
 export const PostForm = () => {
   const [description, setDescription] = useState();
   const user_id = 2;
@@ -51,6 +52,7 @@ export const PostForm = () => {
           POST
         </button>
       </form>
+      <Posts description={description} />
     </>
   );
 };
