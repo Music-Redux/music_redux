@@ -43,7 +43,7 @@ export const CommentForm = ({ postId }) => {
         }}
       >
         <input
-          type="texet"
+          type="text"
           id="comment"
           name="comment"
           placeholder="Write a comment"
