@@ -11,13 +11,11 @@ export const Reviews = ({ songid }) => {
     state.Reviews?.data?.data.filter((rev) => rev.song_id === songId)
   );
 
-  // console.log(reviews);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getReviews());
   }, []);
-
+  console.log(reviews);
   return (
     <div className="flex flex-col">
       <h1 className="font-bold text-3xl text-white">Reviews :</h1>
