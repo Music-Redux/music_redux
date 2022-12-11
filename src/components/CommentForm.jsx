@@ -36,7 +36,9 @@ export const CommentForm = ({ postId }) => {
   };
   return (
     <>
-      <Comments postId={post_id} comment={comment} />
+      <div className="my-5">
+        <Comments postId={post_id} comment={comment} />
+      </div>
       <form
         onSubmit={(e) => {
           handleCreateComment(e);
