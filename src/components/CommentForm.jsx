@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Comments } from "./Comments.jsx";
+import { useAuthUser } from "react-auth-kit";
 
 export const CommentForm = ({ postId }) => {
   const post_id = parseInt(postId);
-  const user_id = 1;
+  const auth = useAuthUser();
+  const user_id = auth()?.id;
   const [comment, setComment] = useState();
 
   const data = new FormData();
@@ -37,25 +39,27 @@ export const CommentForm = ({ postId }) => {
     <>
       <Comments postId={post_id} comment={comment} />
 
-      <form
-        onSubmit={(e) => {
-          handleCreateComment(e);
-        }}
-      >
-        <input
-          type="text"
-          name="comment"
-          placeholder="Write a comment"
-          className="w-3/4 p-3 rounded outline comment"
-          required
-          onChange={(e) => {
-            setComment(e.target.value);
+      {auth() ? (
+        <form
+          onSubmit={(e) => {
+            handleCreateComment(e);
           }}
-        />
-        <button type="submit" className="text-white mx-5">
-          comment
-        </button>
-      </form>
+        >
+          <input
+            type="text"
+            name="comment"
+            placeholder="Write a comment"
+            className="w-3/4 p-3 rounded outline comment"
+            required
+            onChange={(e) => {
+              setComment(e.target.value);
+            }}
+          />
+          <button type="submit" className="text-white mx-5">
+            comment
+          </button>
+        </form>
+      ) : null}
     </>
   );
 };
