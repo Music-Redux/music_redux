@@ -36,7 +36,6 @@ export const CommentForm = ({ postId }) => {
   };
   return (
     <>
-      <Comments postId={post_id} comment={comment} />
       <form
         onSubmit={(e) => {
           handleCreateComment(e);
@@ -46,17 +45,21 @@ export const CommentForm = ({ postId }) => {
           type="text"
           id="comment"
           name="comment"
-          placeholder="Write a comment"
+          placeholder="Add a comment..."
           className="w-3/4 p-3 rounded outline"
           required
           onChange={(e) => {
             setComment(e.target.value);
           }}
         />
-        <button type="submit" className="text-white mx-5">
+        {/* <button
+          type="submit"
+          className="mx-2 bg-[#BB2649] text-gray-300 p-3.5 text-sm rounded-lg outline-none sm:mt-0 mt-5"
+        >
           comment
-        </button>
+        </button> */}
       </form>
+      <Comments postId={post_id} comment={comment} />
     </>
   );
 };

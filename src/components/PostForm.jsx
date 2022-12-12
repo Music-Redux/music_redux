@@ -41,14 +41,17 @@ export const PostForm = () => {
         <input
           type="texet"
           name="description"
-          placeholder="Post your feeling"
+          placeholder="Start a post..."
           className="w-3/4 p-3 rounded outline"
           required
           onChange={(e) => {
             setDescription(e.target.value);
           }}
         />
-        <button type="submit" className="text-white mx-5">
+        <button
+          type="submit"
+          className=" mx-5 bg-[#BB2649] text-gray-300 p-3.5 text-sm rounded-lg outline-none sm:mt-0 mt-5"
+        >
           POST
         </button>
       </form>

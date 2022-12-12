@@ -28,7 +28,7 @@ const NavLinks = ({ handleClick }) => (
       <NavLink
         key={item.name}
         to={item.to}
-        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-[#bb2649]"
+        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-[#bb2649] "
         onClick={() => handleClick && handleClick()}
       >
         <item.icon className="w-6 h-6 mr-2" />
@@ -43,7 +43,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#1E1E1E]">
+      <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#1E1E1E] border-r-2 border-[#bb2649]">
         <img src={logo} alt="logo" className="w-full h-36 object-contain" />
         <NavLinks />
       </div>

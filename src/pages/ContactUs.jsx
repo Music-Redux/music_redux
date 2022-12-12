@@ -30,7 +30,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="contact relative flex flex-col justify-center min-h-screen overflow-hidden">
+    <div className="contact relative flex flex-col  min-h-screen  overflow-hidden ">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center uppercase">
           Contact Us
