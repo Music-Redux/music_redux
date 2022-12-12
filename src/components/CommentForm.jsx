@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Comments } from "./Comments.jsx";
+import { useAuthUser } from "react-auth-kit";
 
 export const CommentForm = ({ postId }) => {
   const post_id = parseInt(postId);
-  const user_id = 1;
+  const auth = useAuthUser();
+  const user_id = auth()?.id;
   const [comment, setComment] = useState();
 
   const data = new FormData();
@@ -22,7 +24,7 @@ export const CommentForm = ({ postId }) => {
   };
 
   const handleCreateComment = (e) => {
-    let comm = document.getElementById("comment");
+    document.querySelector(".comment").value = "";
     e.preventDefault();
     axios(config)
       .then(function (response) {
@@ -32,34 +34,32 @@ export const CommentForm = ({ postId }) => {
         console.log(error);
       });
     setComment("");
-    comm.value = "";
   };
   return (
     <>
-      <form
-        onSubmit={(e) => {
-          handleCreateComment(e);
-        }}
-      >
-        <input
-          type="text"
-          id="comment"
-          name="comment"
-          placeholder="Add a comment..."
-          className="w-3/4 p-3 rounded outline"
-          required
-          onChange={(e) => {
-            setComment(e.target.value);
-          }}
-        />
-        {/* <button
-          type="submit"
-          className="mx-2 bg-[#BB2649] text-gray-300 p-3.5 text-sm rounded-lg outline-none sm:mt-0 mt-5"
-        >
-          comment
-        </button> */}
-      </form>
       <Comments postId={post_id} comment={comment} />
+
+      {auth() ? (
+        <form
+          onSubmit={(e) => {
+            handleCreateComment(e);
+          }}
+        >
+          <input
+            type="text"
+            name="comment"
+            placeholder="Write a comment"
+            className="w-3/4 p-3 rounded outline comment"
+            required
+            onChange={(e) => {
+              setComment(e.target.value);
+            }}
+          />
+          {/* <button type="submit" className="text-white mx-5">
+            comment
+          </button> */}
+        </form>
+      ) : null}
     </>
   );
 };

@@ -1,5 +1,6 @@
+/* eslint-disable */
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   HiOutlineHashtag,
   HiOutlineHome,
@@ -8,11 +9,13 @@ import {
   HiChat,
   HiMusicNote,
   HiOutlineMail,
+  HiUser,
 } from "react-icons/hi";
 import { RiCloseLine } from "react-icons/ri";
-
-import { logo } from "../assets";
-
+import { useIsAuthenticated } from "react-auth-kit";
+import { useSignOut } from "react-auth-kit";
+import { useNavigate } from "react-router-dom";
+// import { logo } from "../assets";
 const links = [
   { name: "Discover", to: "/", icon: HiMusicNote },
   { name: "Top Artists", to: "/top-artists", icon: HiOutlineUserGroup },
@@ -37,6 +40,46 @@ const NavLinks = ({ handleClick }) => (
     ))}
   </div>
 );
+const AuthNavLinks = ({ handleClick }) => {
+  const navigate = useNavigate();
+  const signOut = useSignOut();
+  const isAuthenticated = useIsAuthenticated();
+  return isAuthenticated() ? (
+    <>
+      <NavLink
+        key="Profile"
+        to="/profile"
+        className="flex flex-row justify-start items-center  text-sm font-medium text-gray-400 hover:text-cyan-400"
+        onClick={() => handleClick && handleClick()}
+      >
+        <HiUser className="w-6 h-6 mr-2" />
+        Profile
+      </NavLink>
+      <Link
+        key="Logout"
+        href="/logout"
+        className="flex flex-row justify-start items-center cursor-pointer my-8 text-sm font-medium text-gray-400 hover:text-cyan-400"
+        onClick={() => {
+          signOut();
+          navigate("/login");
+        }}
+      >
+        <HiUser className="w-6 h-6 mr-2" />
+        Logout
+      </Link>
+    </>
+  ) : (
+    <NavLink
+      key="Login"
+      to="/login"
+      className="flex flex-row justify-start items-center  text-sm font-medium text-gray-400 hover:text-cyan-400"
+      onClick={() => handleClick && handleClick()}
+    >
+      <HiUser className="w-6 h-6 mr-2" />
+      Login
+    </NavLink>
+  );
+};
 
 const Sidebar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,8 +87,9 @@ const Sidebar = () => {
   return (
     <>
       <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#1E1E1E] border-r-2 border-[#bb2649]">
-        <img src={logo} alt="logo" className="w-full h-36 object-contain" />
+        {/* <img src={logo} alt="logo" className="w-full h-36 object-contain" /> */}
         <NavLinks />
+        <AuthNavLinks />
       </div>
 
       {/* Mobile sidebar */}
@@ -68,7 +112,7 @@ const Sidebar = () => {
           mobileMenuOpen ? "left-0" : "-left-full"
         }`}
       >
-        <img src={logo} alt="logo" className="w-full h-14 object-contain" />
+        {/* <img src={logo} alt="logo" className="w-full h-14 object-contain" /> */}
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
       </div>
     </>

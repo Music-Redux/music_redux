@@ -9,9 +9,14 @@ import {
   SongDetails,
   TopCharts,
   ContactUs,
+  Login,
+  Register,
 } from "./pages";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
+import Profile from "./pages/Profile";
+import { RequireAuth } from "react-auth-kit";
+
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
@@ -31,9 +36,22 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<ContactUs />} />
 
+              {/* <Route path="/profile" element={<Profile />} /> */}
               <Route path="/artists/:id" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
+
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+
+              <Route
+                path="/profile"
+                element={
+                  <RequireAuth loginPath={"/login"}>
+                    <Profile />
+                  </RequireAuth>
+                }
+              />
             </Routes>
           </div>
           <div className="xl:sticky relative top-0 h-fit">
