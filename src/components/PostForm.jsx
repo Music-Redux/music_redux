@@ -5,7 +5,7 @@ import axios from "axios";
 import { Posts } from "../components/Posts";
 export const PostForm = () => {
   const [description, setDescription] = useState();
-  const user_id = 2;
+  const user_id = 1;
 
   const data = new FormData();
 
@@ -39,7 +39,7 @@ export const PostForm = () => {
         }}
       >
         <input
-          type="texet"
+          type="text"
           name="description"
           placeholder="Post your feeling"
           className="w-3/4 p-3 rounded outline"
