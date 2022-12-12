@@ -10,7 +10,7 @@ import {
   SongDetails,
   TopCharts,
   Login,
- Register
+  Register,
 } from "./pages";
 
 import Blog from "./pages/Blog";
@@ -38,11 +38,10 @@ const App = () => {
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
 
-              <Route path="/login" element={<Login/>} />
-              <Route path="/register" element={<Register/>} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
 
-
-              {/* <Route
+              {/* <Routes
               path="/profile"
               element={
                 <RequireAuth loginPath={"/login"}>
@@ -50,7 +49,6 @@ const App = () => {
                 </RequireAuth>
               }
             /> */}
-
             </Routes>
           </div>
           <div className="xl:sticky relative top-0 h-fit">
