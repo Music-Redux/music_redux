@@ -9,12 +9,10 @@ import {
   Search,
   SongDetails,
   TopCharts,
-
   Login,
  Register
 } from "./pages";
 
-} from "./pages";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import { RequireAuth } from "react-auth-kit";
