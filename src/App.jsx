@@ -12,7 +12,6 @@ import {
   Login,
   Register,
 } from "./pages";
-
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
@@ -35,7 +34,7 @@ const App = () => {
               <Route path="/top-charts" element={<TopCharts />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/about" element={<About />} />
-              <Route path="/profile" element={<Profile />} />
+              {/* <Route path="/profile" element={<Profile />} /> */}
               <Route path="/artists/:id" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
@@ -43,14 +42,14 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
 
-              {/* <Routes
-              path="/profile"
-              element={
-                <RequireAuth loginPath={"/login"}>
-                  <Profile />
-                </RequireAuth>
-              }
-            /> */}
+              <Route
+                path="/profile"
+                element={
+                  <RequireAuth loginPath={"/login"}>
+                    <Profile />
+                  </RequireAuth>
+                }
+              />
             </Routes>
           </div>
           <div className="xl:sticky relative top-0 h-fit">
