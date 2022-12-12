@@ -29,8 +29,6 @@ const EditProfile = ({ open, onClose, user }) => {
   const [email, setemail] = useState(user.email);
   // const [pwd, setpwd] = useState();
 
-  const user_id = auth()?.id;
-
   const data = new FormData();
 
   data.append("name", name);
