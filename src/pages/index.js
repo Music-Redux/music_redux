@@ -6,6 +6,8 @@ import Search from './Search';
 import TopCharts from './TopCharts';
 import Profile from './Profile';
 import TopChartsBar from './TopChartsBar';
+import {Login} from './Login';
+import {Register} from './Register';
 
 export {
   Discover,
@@ -16,4 +18,6 @@ export {
   TopCharts,
   TopChartsBar,
   Profile,
+  Login,
+  Register
 };
