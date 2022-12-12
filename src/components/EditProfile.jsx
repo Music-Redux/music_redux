@@ -29,14 +29,13 @@ const EditProfile = ({ open, onClose, user }) => {
   const [email, setemail] = useState(user.email);
   // const [pwd, setpwd] = useState();
 
-  // const auth = useAuthUser();
-  // const user_id = auth()?.id;
+  const user_id = auth()?.id;
 
   const data = new FormData();
 
   data.append("name", name);
   data.append("email", email);
-  data.append("id", 1);
+  data.append("id", user.id);
 
   var config = {
     method: "post",
