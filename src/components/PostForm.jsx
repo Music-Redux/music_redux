@@ -54,7 +54,7 @@ export const PostForm = () => {
               setDescription(e.target.value);
             }}
           />
-          <button type="submit" className="text-white mx-5">
+          <button type="submit" className="text-white mx-5 bg-[#bb2649]">
             POST
           </button>
         </form>
