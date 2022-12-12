@@ -55,9 +55,9 @@ export const CommentForm = ({ postId }) => {
               setComment(e.target.value);
             }}
           />
-          {/* <button type="submit" className="text-white mx-5">
+          <button type="submit" className="text-white mx-5">
             comment
-          </button> */}
+          </button>
         </form>
       ) : null}
     </>
