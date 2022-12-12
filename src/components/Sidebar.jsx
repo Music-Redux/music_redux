@@ -7,10 +7,11 @@ import {
   HiOutlineMenu,
   HiOutlineUserGroup,
   HiChat,
+  HiUser
 } from "react-icons/hi";
 import { RiCloseLine } from "react-icons/ri";
 
-import { logo } from "../assets";
+// import { logo } from "../assets";
 
 const links = [
   { name: "Discover", to: "/", icon: HiOutlineHome },
@@ -18,6 +19,7 @@ const links = [
   { name: "Top Charts", to: "/top-charts", icon: HiOutlineHashtag },
   { name: "Blog", to: "/blog", icon: HiChat },
   { name: "About", to: "/about", icon: HiChat },
+  { name: "Profile", to: "/profile", icon: HiUser },
 ];
 
 const NavLinks = ({ handleClick }) => (
@@ -42,7 +44,7 @@ const Sidebar = () => {
   return (
     <>
       <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#191624]">
-        <img src={logo} alt="logo" className="w-full h-14 object-contain" />
+        {/* <img src={logo} alt="logo" className="w-full h-14 object-contain" /> */}
         <NavLinks />
       </div>
 
@@ -66,7 +68,7 @@ const Sidebar = () => {
           mobileMenuOpen ? "left-0" : "-left-full"
         }`}
       >
-        <img src={logo} alt="logo" className="w-full h-14 object-contain" />
+        {/* <img src={logo} alt="logo" className="w-full h-14 object-contain" /> */}
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
       </div>
     </>

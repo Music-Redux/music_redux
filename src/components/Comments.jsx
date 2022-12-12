@@ -32,7 +32,7 @@ export const Comments = ({ postId, comment }) => {
   }, [comment]);
 
   return (
-    <div>
+    <div className="my-5">
       {comments?.map((comment, i) => {
         return <Comment key={i} comment={comment} users={users} />;
       })}

@@ -5,7 +5,7 @@ import axios from "axios";
 import { Posts } from "../components/Posts";
 export const PostForm = () => {
   const [description, setDescription] = useState();
-  const user_id = 2;
+  const user_id = 1;
 
   const data = new FormData();
 
@@ -20,6 +20,7 @@ export const PostForm = () => {
   };
 
   const handleCreatePost = (e) => {
+    let post = document.querySelector(".post");
     e.preventDefault();
 
     axios(config)
@@ -29,6 +30,8 @@ export const PostForm = () => {
       .catch(function (error) {
         console.log(error);
       });
+    setDescription("");
+    post.value = "";
   };
 
   return (
@@ -39,10 +42,10 @@ export const PostForm = () => {
         }}
       >
         <input
-          type="texet"
+          type="text"
           name="description"
           placeholder="Post your feeling"
-          className="w-3/4 p-3 rounded outline"
+          className="w-3/4 p-3 rounded outline post"
           required
           onChange={(e) => {
             setDescription(e.target.value);
