@@ -22,7 +22,7 @@ export const CommentForm = ({ postId }) => {
   };
 
   const handleCreateComment = (e) => {
-    let comm = document.querySelector(".comment");
+    document.querySelector(".comment").value = "";
     e.preventDefault();
     axios(config)
       .then(function (response) {
@@ -32,13 +32,11 @@ export const CommentForm = ({ postId }) => {
         console.log(error);
       });
     setComment("");
-    comm.value = "";
   };
   return (
     <>
-      <div className="my-5">
-        <Comments postId={post_id} comment={comment} />
-      </div>
+      <Comments postId={post_id} comment={comment} />
+
       <form
         onSubmit={(e) => {
           handleCreateComment(e);
