@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from "./components";
@@ -53,9 +54,6 @@ const App = () => {
                 }
               />
             </Routes>
-          </div>
-          <div className="xl:sticky relative top-0 h-fit">
-            {/* <TopPlay /> */}
           </div>
         </div>
       </div>
