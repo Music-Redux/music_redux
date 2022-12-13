@@ -11,16 +11,24 @@ export const Post = ({ post, users }) => {
   // console.log(post);
   return (
     <>
-      <div className="w-full bg-black m-5">
-        <h1>post  </h1> <h1 className="text-end text-white pr-10">text</h1>
-        <p className="text-white">{post?.description}</p>
-        <img
-          //u can read the image like this
-          // src={`data:image/jpeg;base64,${user.avatar}`}
-          src={user?.avatar}
-          width="50%"
-          alt=""
-        />
+      <div className="w-3/4 bg-[#1e1e1e] mt-5 border-2 border-rose-500 p-6 rounded-lg">
+        <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
+          <img
+            //u can read the image like this
+            // src={`data:image/jpeg;base64,${user.avatar}`}
+            src={user?.avatar}
+            width="10%"
+            alt=""
+            className="rounded-lg"
+          />
+          <p className="text-white mt-2">
+            {" "}
+            {user ? user["first-name"] + "  " + user["last-name"] : "test"}
+          </p>
+        </div>
+
+        <p className="text-white m-4 ml-0">{post?.description}</p>
+
         {/* <Comments postId={post?.id} /> */}
         <CommentForm postId={post?.id} />
       </div>
