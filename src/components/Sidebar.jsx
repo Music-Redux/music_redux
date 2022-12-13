@@ -15,7 +15,7 @@ import { RiCloseLine } from "react-icons/ri";
 import { useIsAuthenticated } from "react-auth-kit";
 import { useSignOut } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
-import { logo } from "../assets";
+import logo1 from "../assets/logo1.png";
 const links = [
   { name: "Discover", to: "/", icon: HiMusicNote },
   { name: "Top Artists", to: "/top-artists", icon: HiOutlineUserGroup },
@@ -87,7 +87,7 @@ const Sidebar = () => {
   return (
     <>
       <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#1E1E1E] border-r-2 border-[#bb2649]">
-        <img src={logo} alt="logo" className="w-full h-36 object-contain" />
+        <img src={logo1} alt="logo" className="w-full h-36 object-contain" />
         <NavLinks />
         <AuthNavLinks />
       </div>

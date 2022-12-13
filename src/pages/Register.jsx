@@ -35,7 +35,7 @@ export const Register = (props) => {
             authState: response.data.user,
           })
         ) {
-          return navigate("/");
+          return navigate("/profile");
         }
       })
       .catch((error) => {
@@ -43,16 +43,16 @@ export const Register = (props) => {
       });
   };
   // console.log(isAuth());
-  if (isAuth()) {
-    return navigate("/");
-  }
+  //   if (isAuth()) {
+  //     return navigate("/");
+  //   }
   return (
     <div className="contact relative flex flex-col  min-h-screen  overflow-hidden ml-80">
       <div className="auth-form-container w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl ml-8">
         <h2 className="text-3xl font-semibold text-center uppercase ContactForm mt-6">
           Register
         </h2>
-        <form className="register-form" onSubmit={handleSubmit}>
+        <form className="register-form mt-6" onSubmit={handleSubmit}>
           <label htmlFor="name">Full name</label>
           <input
             value={name}
