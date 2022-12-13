@@ -49,7 +49,7 @@ const AuthNavLinks = ({ handleClick }) => {
       <NavLink
         key="Profile"
         to="/profile"
-        className="flex flex-row justify-start items-center  text-sm font-medium text-gray-400 hover:text-cyan-400"
+        className="flex flex-row justify-start items-center  text-sm font-medium text-gray-400  hover:text-[#bb2649]"
         onClick={() => handleClick && handleClick()}
       >
         <HiUser className="w-6 h-6 mr-2" />
@@ -58,7 +58,7 @@ const AuthNavLinks = ({ handleClick }) => {
       <Link
         key="Logout"
         href="/logout"
-        className="flex flex-row justify-start items-center cursor-pointer my-8 text-sm font-medium text-gray-400 hover:text-cyan-400"
+        className="flex flex-row justify-start items-center cursor-pointer my-8 text-sm font-medium text-gray-400  hover:text-[#bb2649] "
         onClick={() => {
           signOut();
           navigate("/login");
@@ -72,7 +72,7 @@ const AuthNavLinks = ({ handleClick }) => {
     <NavLink
       key="Login"
       to="/login"
-      className="flex flex-row justify-start items-center  text-sm font-medium text-gray-400 hover:text-cyan-400"
+      className="flex flex-row justify-start items-center  text-sm font-medium text-gray-400  hover:text-[#bb2649]"
       onClick={() => handleClick && handleClick()}
     >
       <HiUser className="w-6 h-6 mr-2" />
