@@ -113,12 +113,13 @@ export const Login = (props) => {
             Log In
           </button>
         </form>
-        <button
-          className="text-black"
-          onClick={() => props.onFormSwitch("login")}
+        <a
+          // className="link-btn"
+          // onClick={() => props.onFormSwitch("/register")}
+          href="/register"
         >
-          New member? Register here.
-        </button>
+          New ? register here .
+        </a>
       </div>
     </div>
   );

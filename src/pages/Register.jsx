@@ -130,12 +130,13 @@ export const Register = (props) => {
             Log In
           </button>
         </form>
-        <button
-          className=" text-black"
-          onClick={() => props.onFormSwitch("login")}
+        <a
+          // className="link-btn"
+          // onClick={() => props.onFormSwitch("/register")}
+          href="/login"
         >
-          Already a member? Login here.
-        </button>
+          Already have an account? Login here.
+        </a>
       </div>
     </div>
   );

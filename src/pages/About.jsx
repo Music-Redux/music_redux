@@ -1,6 +1,6 @@
 import React from "react";
 
-const Blog = () => {
+const About = () => {
   return (
     <div className="container ml-24 ">
       <div
@@ -51,4 +51,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default About;
