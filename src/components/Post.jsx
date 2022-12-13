@@ -12,7 +12,7 @@ export const Post = ({ post, users }) => {
   return (
     <>
       <div className="w-full bg-black m-5">
-        post
+        <h1>post  </h1> <h1 className="text-end text-white pr-10">text</h1>
         <p className="text-white">{post?.description}</p>
         <img
           //u can read the image like this

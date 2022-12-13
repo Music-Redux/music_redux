@@ -1,6 +1,8 @@
 import React from 'react'
-
+import {useNavigate } from 'react-router-dom';
 const PostCard = ({ post }) => {
+    const navigate = useNavigate();
+
   return (
     <div className='pb-6'>
 
@@ -17,7 +19,7 @@ const PostCard = ({ post }) => {
     </div>
 
     <div className="flex items-center justify-between mt-4">
-        <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+        {/* <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a> */}
 
       
     </div>

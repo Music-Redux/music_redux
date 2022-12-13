@@ -61,6 +61,8 @@ console.log(user);
          <div className='pt-10 pl-4'>
          <h2 className="font-bold text-3xl text-white text-left">
           Welcome {user? (user['first-name'] +'  '+user['last-name']) :'tset'} 
+        {/*///////////////////  */}
+     
           {/* {user['last-name'] }  */}
           {/* Manar Olimat  */}
         </h2>
@@ -85,8 +87,7 @@ console.log(user);
         {
         posts?.map((item,i)=>{
   return <PostCard post={item}/>
-  // console.log(item['description']);
-  // <PostCard post={item} />
+
   
 
 })
@@ -94,9 +95,7 @@ console.log(user);
        
         </div>
 
-        {/* <div className="xl:sticky relative top-0 h-fit">
-            <TopPlay />
-          </div> */}
+      
   {/* side fav */}
         <div className="lg:sticky lg:top-0">
         <h1 className="text-2xl font-bold text-white pb-4 lg:text-3xl">Favorites</h1>
@@ -107,87 +106,7 @@ console.log(user);
         fav.map((item)=><TopChartsBar key={item['song_id']} fav={item['song_id']}/>)
         : null}
         
-        {/* <TopPlay /> */}
-        {/* <TopCharts /> */}
-        {/* <section>
-            <a
-  className="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
-  href=""
->
-
-
-  <div className="mt-4 text-gray-500 sm:pr-8">
-    
-    <h3 className="mt-4 text-xl font-bold text-gray-900">Science of Chemistry</h3>
-
-    <p className="mt-2 hidden text-sm sm:block">
-      You can manage phone, email and chat conversations all from a single
-      mailbox.
-    </p>
-  </div>
-</a>
-
-            </section>
-
-            <section>
-            <a
-  className="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
-  href=""
->
-
-
-  <div className="mt-4 text-gray-500 sm:pr-8">
-    
-    <h3 className="mt-4 text-xl font-bold text-gray-900">Science of Chemistry</h3>
-
-    <p className="mt-2 hidden text-sm sm:block">
-      You can manage phone, email and chat conversations all from a single
-      mailbox.
-    </p>
-  </div>
-</a>
-
-            </section>
-
-            <section>
-            <a
-  className="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
-  href=""
->
-
-
-  <div className="mt-4 text-gray-500 sm:pr-8">
-    
-    <h3 className="mt-4 text-xl font-bold text-gray-900">Science of Chemistry</h3>
-
-    <p className="mt-2 hidden text-sm sm:block">
-      You can manage phone, email and chat conversations all from a single
-      mailbox.
-    </p>
-  </div>
-</a>
-
-            </section>
-
-            <section>
-            <a
-  className="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
-  href=""
->
-
-
-  <div className="mt-4 text-gray-500 sm:pr-8">
-    
-    <h3 className="mt-4 text-xl font-bold text-gray-900">Science of Chemistry</h3>
-
-    <p className="mt-2 hidden text-sm sm:block">
-      You can manage phone, email and chat conversations all from a single
-      mailbox.
-    </p>
-  </div>
-</a>
-
-            </section> */}
+      
 
         </div>
   {/* //////////////////////////////////////////////// */}
