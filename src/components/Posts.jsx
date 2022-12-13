@@ -5,38 +5,31 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { Post } from "./Post";
 import { getUsers } from "../redux/fromDB/userSlice";
+import { getPosts } from "../redux/fromDB/postSlice";
 export const Posts = ({ description }) => {
   const users = useSelector((state) => state.Users.data?.data);
-  // console.log(description);
-  const [posts, setPosts] = useState();
+  const posts = useSelector((state) => state.Posts.data?.data);
+  let user;
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUsers());
-  }, []);
-
-  var config = {
-    method: "get",
-    url: "http://127.0.0.1:8000/api/posts",
-    headers: {},
-  };
-
-  useEffect(() => {
-    axios(config)
-      .then(function (response) {
-        // console.log(response.data.data);
-        setPosts(response.data.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    dispatch(getPosts());
   }, [description]);
+
+  console.log(users);
   console.log(posts);
+  // let all = posts;
+  // console.log(all);
+  // posts.slice().sort((a, b) => b.id - a.id);
   return (
     <>
       {posts
-        ?.sort((a, b) => b.id - a.id)
+        ?.slice()
+        .sort((a, b) => b.id - a.id)
         .map((post, i) => {
-          return <Post post={post} key={i} users={users} />;
+          user = users.find((usr) => usr.id === post.user_id);
+          return <Post post={post} key={i} users={user} />;
         })}
     </>
   );

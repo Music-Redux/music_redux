@@ -31,7 +31,7 @@ const Discover = () => {
   return (
     <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
       <div className="flex-1 h-fit pb-40">
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center">
           <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
             <h2 className="font-bold text-3xl text-white text-left">
               Discover {genreTitle}
@@ -51,7 +51,7 @@ const Discover = () => {
             </select>
           </div>
 
-          <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+          <div className="flex flex-wrap sm:justify-start justify-center align-center gap-8">
             {data?.map((song, i) => (
               <SongCard
                 key={song.key}

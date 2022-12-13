@@ -11,6 +11,7 @@ import TopCharts from "./TopCharts";
 
 import { TopPlay } from "../components";
 import EditProfile from "../components/EditProfile";
+import { logo } from "../assets";
 
 const Profile = () => {
   const auth = useAuthUser();
@@ -18,7 +19,7 @@ const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [posts, setPosts] = useState();
   const [fav, setFav] = useState();
-
+  console.log(user);
   // retrieve data from the back end
   var config = {
     method: "get",

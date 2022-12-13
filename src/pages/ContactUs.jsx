@@ -113,6 +113,7 @@ const ContactUs = () => {
             duration-150
             focus:shadow-outline
             hover:bg-indigo-800
+            mt-5
           "
             style={{ backgroundColor: "#BB2649", color: "white" }}
           >
