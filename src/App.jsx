@@ -1,11 +1,30 @@
-import { useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+/* eslint-disable */
+import { useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import { Searchbar, Sidebar, MusicPlayer, TopPlay } from "./components";
+import {
+  ArtistDetails,
+  TopArtists,
+  Discover,
+  Search,
+  SongDetails,
+  TopCharts,
+} from "./pages";
+import Blog from "./pages/Blog";
+import About from "./pages/About";
+import { useState } from "react";
 
-import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
-import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from './pages';
+
 
 const App = () => {
+  const [favorites, setfavorites] = useState([]);
   const { activeSong } = useSelector((state) => state.player);
+
+
+  const AddToFavorites = (activeSong) => {
+    const newFavorites = [...favorites, activeSong];
+    setfavorites(newFavorites)
+  }
 
   return (
     <div className="relative flex">
@@ -19,9 +38,10 @@ const App = () => {
               <Route path="/" element={<Discover />} />
               <Route path="/top-artists" element={<TopArtists />} />
               <Route path="/top-charts" element={<TopCharts />} />
-              <Route path="/around-you" element={<AroundYou />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/about" element={<About />} />
               <Route path="/artists/:id" element={<ArtistDetails />} />
-              <Route path="/songs/:songid" element={<SongDetails />} />
+              <Route path="/songs/:songid" element={<SongDetails />} handleFavorites={AddToFavorites} />
               <Route path="/search/:searchTerm" element={<Search />} />
             </Routes>
           </div>
