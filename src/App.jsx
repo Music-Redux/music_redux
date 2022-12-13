@@ -9,12 +9,16 @@ import {
   Search,
   SongDetails,
   TopCharts,
+  ContactUs,
+  Login,
+  Register,
 } from "./pages";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import { useState } from "react";
 
-
+import Profile from "./pages/Profile";
+import { RequireAuth } from "react-auth-kit";
 
 const App = () => {
   const [favorites, setfavorites] = useState([]);
@@ -29,7 +33,7 @@ const App = () => {
   return (
     <div className="relative flex">
       <Sidebar />
-      <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
+      <div className="flex-1 flex flex-col bg-[#1e1e1e]">
         <Searchbar />
 
         <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
@@ -40,19 +44,31 @@ const App = () => {
               <Route path="/top-charts" element={<TopCharts />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<ContactUs />} />
+
+              {/* <Route path="/profile" element={<Profile />} /> */}
               <Route path="/artists/:id" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} handleFavorites={AddToFavorites} />
               <Route path="/search/:searchTerm" element={<Search />} />
+
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+
+              <Route
+                path="/profile"
+                element={
+                  <RequireAuth loginPath={"/login"}>
+                    <Profile />
+                  </RequireAuth>
+                }
+              />
             </Routes>
-          </div>
-          <div className="xl:sticky relative top-0 h-fit">
-            <TopPlay />
           </div>
         </div>
       </div>
 
       {activeSong?.title && (
-        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#2a2a80] backdrop-blur-lg rounded-t-3xl z-10">
+        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#bb2649] backdrop-blur-lg rounded-t-3xl z-10">
           <MusicPlayer />
         </div>
       )}
