@@ -69,9 +69,13 @@ export const Login = (props) => {
         />
         <button type="submit">Log In</button>
       </form>
-      <button className="link-btn" onClick={() => props.onFormSwitch("login")}>
-        Already have an account? Login here.
-      </button>
+      <a
+        // className="link-btn"
+        // onClick={() => props.onFormSwitch("/register")}
+        href="/register"
+      >
+        New ? register here .
+      </a>
     </div>
   );
 };
