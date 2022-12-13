@@ -46,32 +46,80 @@ export const Login = (props) => {
     return navigate("/");
   }
   return (
-    <div className="auth-form-container">
-      <h2>Register</h2>
-      <form className="register-form" onSubmit={handleSubmit}>
-        <label htmlFor="email">email</label>
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="youremail@gmail.com"
-          id="email"
-          name="email"
-        />
-        <label htmlFor="password">password</label>
-        <input
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
-          type="password"
-          placeholder="********"
-          id="password"
-          name="password"
-        />
-        <button type="submit">Log In</button>
-      </form>
-      <button className="link-btn" onClick={() => props.onFormSwitch("login")}>
-        Already have an account? Login here.
-      </button>
+    <div className="contact relative flex flex-col  min-h-screen  overflow-hidden ml-70">
+      <div className="auth-form-container w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl ml-8">
+        <h2 className="text-3xl font-semibold text-center uppercase ">Login</h2>
+        <form
+          className="register-form ContactForm mt-6"
+          onSubmit={handleSubmit}
+        >
+          <label htmlFor="email" className="text-black">
+            Email
+          </label>
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="youremail@gmail.com"
+            id="email"
+            name="email"
+            className="
+          w-full
+          block px-16 py-2 mt-2
+          border-gray-300
+          rounded-md
+          shadow-sm
+          focus:border-indigo-300
+          focus:ring
+          focus:ring-indigo-200
+          focus:ring-opacity-50
+        "
+          />
+          <label htmlFor="password" className="text-black">
+            Password
+          </label>
+          <input
+            value={pass}
+            onChange={(e) => setPass(e.target.value)}
+            type="password"
+            placeholder="********"
+            id="password"
+            name="password"
+            className="
+          w-full
+          block px-16 py-2 mt-2
+          border-gray-300
+          rounded-md
+          shadow-sm
+          focus:border-indigo-300
+          focus:ring
+          focus:ring-indigo-200
+          focus:ring-opacity-50
+
+        "
+          />
+          <button
+            type="submit"
+            className="
+           rounded-lg
+           transition-colors
+           duration-150
+           focus:shadow-outline
+           hover:bg-indigo-800
+           mt-5
+         "
+            style={{ backgroundColor: "#BB2649", color: "white" }}
+          >
+            Log In
+          </button>
+        </form>
+        <button
+          className="text-black"
+          onClick={() => props.onFormSwitch("login")}
+        >
+          New member? Register here.
+        </button>
+      </div>
     </div>
   );
 };
