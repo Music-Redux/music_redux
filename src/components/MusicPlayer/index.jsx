@@ -16,8 +16,6 @@ const MusicPlayer = () => {
   const [volume, setVolume] = useState(0.3);
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
-
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -53,8 +51,6 @@ const MusicPlayer = () => {
       dispatch(prevSong(currentIndex - 1));
     }
   };
-
-
 
   return (
     <div className="relative sm:px-12 px-8 w-full flex items-center justify-between">
