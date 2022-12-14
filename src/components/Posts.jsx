@@ -29,7 +29,7 @@ export const Posts = ({ description }) => {
         .sort((a, b) => b.id - a.id)
         .map((post, i) => {
           user = users.find((usr) => usr.id === post.user_id);
-          return <Post post={post} key={i} users={user} />;
+          return <Post post={post} key={i} user={user} />;
         })}
     </>
   );
