@@ -23,7 +23,7 @@ const Profile = () => {
   // retrieve data from the back end
   var config = {
     method: "get",
-    url: `http://localhost:8000/api/profile/${user.id}`,
+    url: `http://localhost:8000/api/profile/${user?.id}`,
     headers: {
       // Accept:application/json
     },
@@ -58,11 +58,11 @@ const Profile = () => {
 
             <div className="pt-10 pl-4">
               <h2 className="font-bold text-3xl text-white text-left">
-                Welcome {user.name}
+                Welcome {user?.name}
                 {/* {user['last-name'] }  */}
                 {/* Manar Olimat  */}
               </h2>
-              <p className="mt-1 text-sm text-gray-500">{user.email}</p>
+              <p className="mt-1 text-sm text-gray-500">{user?.email}</p>
               <span
                 id="badge-dismiss-default"
                 className="inline-flex items-center py-1 px-2 mr-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-200 dark:text-blue-800"
