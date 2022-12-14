@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React from "react";
 const PostCard = ({ post }) => {
+    // const navigate = useNavigate();
+
   return (
     <div className="pb-6">
       <div className="max-w-2xl px-4 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
