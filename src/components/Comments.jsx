@@ -8,11 +8,12 @@ export const Comments = ({ postId, comment }) => {
   const post_id = parseInt(postId);
   const [comments, setComments] = useState();
   const users = useSelector((state) => state.Users.data?.data);
-
+  console.log(users);
+  let user;
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUsers());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getUsers());
+  // }, []);
 
   const config = {
     method: "get",
@@ -34,7 +35,8 @@ export const Comments = ({ postId, comment }) => {
   return (
     <div className="my-5">
       {comments?.map((comment, i) => {
-        return <Comment key={i} comment={comment} users={users} />;
+        user = users.find((user) => user.id === comment.user_id);
+        return <Comment key={i} comment={comment} user={user} />;
       })}
     </div>
   );

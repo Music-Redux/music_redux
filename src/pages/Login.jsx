@@ -46,7 +46,7 @@ export const Login = (props) => {
     return navigate("/");
   }
   return (
-    <div className="contact relative flex flex-col  min-h-screen  overflow-hidden ml-70">
+    <div className="contact relative flex flex-col  min-h-screen  overflow-hidden ml-80">
       <div className="auth-form-container w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl ml-8">
         <h2 className="text-3xl font-semibold text-center uppercase ">Login</h2>
         <form

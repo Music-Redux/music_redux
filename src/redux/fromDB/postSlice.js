@@ -16,7 +16,7 @@ const initialState = {
 };
 
 const postSlice = createSlice({
-  name: "review",
+  name: "posts",
   initialState,
   reducers: {
     // createPost: (state, action) => {},

@@ -1,12 +1,44 @@
-import React from "react";
+/* eslint-disable */
+import {useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { HiOutlineHeart, HiHeart } from "react-icons/hi";
+import axios from 'axios';
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
+import { useIsAuthenticated, useAuthUser } from "react-auth-kit";
 
-const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
+const SongCard = ({ song, isPlaying, activeSong, data, i, isFavp }) => {
+  // console.log(data[i]);
+  const isAuthenticated = useIsAuthenticated();
   const dispatch = useDispatch();
+  const auth = useAuthUser();
+  const user_id = auth()?.id;
+  const favData = {
+    "user_id": user_id,
+    "song_id": song.key,
+  }
+
+  var configAdd = {
+    method: "post",
+    url: "http://localhost:8000/api/add_favorite",
+    headers: {},
+    data: favData,
+  };
+
+  var configRemove = {
+    method: "delete",
+    url: "http://127.0.0.1:8000/api/delete_favorite",
+    headers: {
+      'Accept': 'application/json',
+            'Content-Type': 'application/json'
+    },
+    data: favData,
+  };
+  
+
+  // console.log(activeSong.key);
+  const [isFav, setIsFav] = useState(isFavp);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -17,6 +49,38 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
     dispatch(playPause(true));
   };
 
+
+
+
+  // setIsFav(false);
+    // add to fav
+  const handleAddToFav = (e) => {
+    e.preventDefault();
+
+    axios(configAdd)
+      .then(function (response) {
+        // console.log(response.data);
+        setIsFav(!isFav);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+  };
+
+  // remove from fav
+  const handleRemoveFromFav = (e) => {
+    e.preventDefault();
+    axios(configRemove)
+      .then(function (response) {
+        // console.log(response.data);
+        setIsFav(!isFav);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   return (
     <div className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer bg-[#BB264959] ">
       <div className="relative w-full h-56 group">
@@ -27,13 +91,20 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
               : "hidden"
           }`}
         >
-          <PlayPause
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            song={song}
-            handlePause={handlePauseClick}
-            handlePlay={handlePlayClick}
-          />
+          
+          {isAuthenticated() ? (
+            <PlayPause
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              song={song}
+              handlePause={handlePauseClick}
+              handlePlay={handlePlayClick}
+            />
+          ) : (
+            <a href="/login" className="text-white">
+              Login to listen
+            </a>
+          )}
         </div>
         <img
           alt="song_img"
@@ -45,8 +116,9 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
       <div className="mt-4 flex flex-col">
         <p className="font-semibold text-lg text-white truncate">
           <Link to={`/songs/${song?.key}`}>{song.title}</Link>
+          
         </p>
-        <p className="text-sm truncate text-gray-300 mt-1">
+        <p className="text-sm flex truncate text-gray-300 mt-1">
           <Link
             to={
               song.artists
@@ -56,6 +128,8 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
           >
             {song.subtitle}
           </Link>
+          {isFav ? <HiHeart onClick={handleRemoveFromFav} color='red' className='ml-8 w-8 h-8' />
+            : <HiOutlineHeart onClick={handleAddToFav} color='red' className=' ml-8 w-8 h-8' />}
         </p>
       </div>
     </div>
