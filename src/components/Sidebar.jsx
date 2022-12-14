@@ -20,7 +20,7 @@ const links = [
   { name: "Discover", to: "/", icon: HiMusicNote },
   { name: "Top Artists", to: "/top-artists", icon: HiOutlineUserGroup },
   { name: "Top Charts", to: "/top-charts", icon: HiOutlineHashtag },
-  { name: "Blog", to: "/blog", icon: HiChat },
+  { name: "Community", to: "/blog", icon: HiChat },
   { name: "About Us", to: "/about", icon: HiOutlineHome },
   { name: "Contact Us", to: "/contact", icon: HiOutlineMail },
 ];

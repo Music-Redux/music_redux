@@ -71,12 +71,9 @@ export const Post = ({ post, user }) => {
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                            class="block py-2 px-4 hover:bg-gray-100 text-red-500 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
                     </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
-                    </li>
+                  
                 </ul>
       </div>
     </div>
@@ -168,7 +165,7 @@ export const Post = ({ post, user }) => {
 
 
 {/* //////////////////////////////////////////// */}
-        <section class="bg-white dark:bg-gray-900 py-8 lg:py-16">
+        {/* <section class="bg-white dark:bg-gray-900 py-8 lg:py-16"> */}
   {/* <div class="max-w-2xl mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
@@ -333,7 +330,7 @@ export const Post = ({ post, user }) => {
         </div>
     </article> */}
   {/* </div> */}
-</section>
+{/* </section> */}
       </div>
       </div>
     </>
