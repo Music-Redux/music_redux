@@ -4,7 +4,7 @@ import { shazamCoreApi } from "./services/shazamCore";
 import playerReducer from "./features/playerSlice";
 import reviewReducer from "./fromDB/reviewSlice";
 import userReducer from "./fromDB/userSlice";
-import postReducer from "./fromDB/userSlice";
+import postReducer from "./fromDB/postSlice";
 
 export const store = configureStore({
   reducer: {
