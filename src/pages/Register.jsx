@@ -162,7 +162,6 @@ export const Register = (props) => {
 
         "
           />
-
           <label htmlFor="password">password</label>
           <input
             value={pass}
