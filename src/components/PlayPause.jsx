@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import { FaPauseCircle, FaPlayCircle } from "react-icons/fa";
 

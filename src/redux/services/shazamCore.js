@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
 export const shazamCoreApi = createApi({
   reducerPath: "shazamCoreApi",
   baseQuery: fetchBaseQuery({
@@ -7,7 +8,7 @@ export const shazamCoreApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         "X-RapidAPI-Key",
-        '2ebcd3d14cmshfd6076d99e992f6p1223ecjsncc72f7e56d17'
+        "786b40ec2emsh1e95767a19c4931p1fb508jsn55e56279ff33"
       );
       
       return headers;
