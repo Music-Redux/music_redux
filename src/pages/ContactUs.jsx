@@ -31,8 +31,8 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="contact relative flex flex-col  overflow-hidden ">
-      <div className="w-full p-6 m-auto backdrop-blur-sm bg-[#BB264959] rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl">
+    <div className="contact relative flex flex-col overflow-hidden ">
+      <div className="w-full p-6 m-auto backdrop-blur-sm bg-[#BB264959] rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl mt-16">
         <h1 className="text-3xl font-semibold text-center uppercase text-white">
           Contact Us
         </h1>
@@ -108,14 +108,16 @@ const ContactUs = () => {
           <button
             type="submit"
             className="
+            w-full
             rounded-lg
             transition-colors
             duration-150
-            focus:shadow-outline
-            hover:bg-indigo-800
+            hover:bg-[#fff]
             mt-5
+            bg-[#1e1e1e]
+            text-[#BB2649]
+            font-bold
           "
-            style={{ backgroundColor: "#c9516d", color: "white" }}
           >
             Contact Us
           </button>
