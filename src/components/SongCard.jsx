@@ -1,11 +1,14 @@
+/* eslint-disable */
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
+import { useIsAuthenticated } from "react-auth-kit";
 
 const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
+  const isAuthenticated = useIsAuthenticated();
   const dispatch = useDispatch();
 
   const handlePauseClick = () => {
@@ -27,13 +30,19 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
               : "hidden"
           }`}
         >
-          <PlayPause
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            song={song}
-            handlePause={handlePauseClick}
-            handlePlay={handlePlayClick}
-          />
+          {isAuthenticated() ? (
+            <PlayPause
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              song={song}
+              handlePause={handlePauseClick}
+              handlePlay={handlePlayClick}
+            />
+          ) : (
+            <a href="/login" className="text-white">
+              Login to listen
+            </a>
+          )}
         </div>
         <img
           alt="song_img"

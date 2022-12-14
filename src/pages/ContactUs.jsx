@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
@@ -107,13 +108,12 @@ const ContactUs = () => {
           <button
             type="submit"
             className="
-            h-10
-            px-5
             rounded-lg
             transition-colors
             duration-150
             focus:shadow-outline
             hover:bg-indigo-800
+            mt-5
           "
             style={{ backgroundColor: "#BB2649", color: "white" }}
           >
