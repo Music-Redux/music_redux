@@ -8,7 +8,7 @@ import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 import { useIsAuthenticated, useAuthUser } from "react-auth-kit";
 
-const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
+const SongCard = ({ song, isPlaying, activeSong, data, i, isFavp }) => {
   // console.log(data[i]);
   const isAuthenticated = useIsAuthenticated();
   const dispatch = useDispatch();
@@ -35,9 +35,10 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
     },
     data: favData,
   };
+  
 
   // console.log(activeSong.key);
-  const [isFav, setIsFav] = useState(false);
+  const [isFav, setIsFav] = useState(isFavp);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -48,13 +49,7 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
     dispatch(playPause(true));
   };
 
-  // useEffect({
-  //   axios(configRemove)
-  //     .then(function (response) {
-  //       // console.log(response.data);
-  //       setIsFav(!isFav);
-  //     })
-  // },[]);
+
 
 
   // setIsFav(false);
