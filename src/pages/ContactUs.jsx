@@ -3,9 +3,9 @@ import React from "react";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
 
-const SERVICE_ID = "service_qak4i1n";
+const SERVICE_ID = "service_b46b8zr";
 const TEMPLATE_ID = "template_uryecnr";
-const USER_ID = "vmFH-M7VWwwd4bFGP";
+const USER_ID = "etcJ_jPr6-CxnQeWU";
 
 const ContactUs = () => {
   const handleOnSubmit = (e) => {
@@ -31,15 +31,15 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="contact relative flex flex-col  min-h-screen  overflow-hidden ">
-      <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl">
-        <h1 className="text-3xl font-semibold text-center uppercase">
+    <div className="contact relative flex flex-col  overflow-hidden ">
+      <div className="w-full p-6 m-auto backdrop-blur-sm bg-[#BB264959] rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl">
+        <h1 className="text-3xl font-semibold text-center uppercase text-white">
           Contact Us
         </h1>
         <form onSubmit={handleOnSubmit} className="ContactForm mt-6">
           <div className="mb-2">
             <label>
-              <span className="text-grey-700">Email</span>
+              <span className="text-white">Email</span>
               <input
                 id="form-input-control-email"
                 label="Email"
@@ -62,7 +62,7 @@ const ContactUs = () => {
           </div>
           <div className="mb-2">
             <label>
-              <span className="text-grey-700">Name</span>
+              <span className="text-white">Name</span>
               <input
                 id="form-input-control-last-name"
                 name="user_name"
@@ -84,7 +84,7 @@ const ContactUs = () => {
           </div>
           <div className="mb-2">
             <label>
-              <span className="text-grey-700">Message</span>
+              <span className="text-white">Message</span>
               <input
                 id="form-textarea-control-opinion"
                 name="user_message"
@@ -115,7 +115,7 @@ const ContactUs = () => {
             hover:bg-indigo-800
             mt-5
           "
-            style={{ backgroundColor: "#BB2649", color: "white" }}
+            style={{ backgroundColor: "#c9516d", color: "white" }}
           >
             Contact Us
           </button>
