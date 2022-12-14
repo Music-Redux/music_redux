@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 const PostCard = ({ post }) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
   return (
     <div className="pb-6">
