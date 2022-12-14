@@ -28,6 +28,7 @@ const TopCharts = () => {
 
   if (error) return <Error />;
   // useEffect(() =>{
+    // 
   //   axios(configGetByUser).then(response=>
   //       {
   //         //response.json() returns a promise as well 
