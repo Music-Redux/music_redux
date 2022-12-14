@@ -108,7 +108,7 @@ export const Register = (props) => {
         <h2 className="text-3xl font-semibold text-center uppercase ContactForm mt-6">
           Register
         </h2>
-        <img
+        {/* <img
           onClick={handleClick}
           alt="..."
           src={imgUrl}
@@ -119,7 +119,7 @@ export const Register = (props) => {
           ref={inputRef}
           type="file"
           onChange={handleFileChange}
-        />
+        /> */}
         <form className="register-form mt-6" onSubmit={handleSubmit}>
           <label htmlFor="name">Full name</label>
           <input
@@ -206,6 +206,19 @@ export const Register = (props) => {
 
         "
           />
+          <img
+            onClick={handleClick}
+            alt="..."
+            src={imgUrl}
+            className="shadow-xl rounded-full"
+          />
+          <input
+            style={{ display: "none" }}
+            ref={inputRef}
+            type="file"
+            onChange={handleFileChange}
+          />{" "}
+          <br />
           <button
             type="submit"
             className="
