@@ -162,29 +162,7 @@ export const Register = (props) => {
 
         "
           />
-          {/* <label htmlFor="avatar">Your Avatar</label>
-          <input
-            type="file"
-            onChange={(e) => {
-              // console.log(e.target.files[0]);
-              setFile(e.target.files[0]);
-            }}
-            id="avatar"
-            name="avatar"
-            required
-            className="
-          w-full
-          block px-16 py-2 mt-2
-          border-gray-300
-          rounded-md
-          shadow-sm
-          focus:border-indigo-300
-          focus:ring
-          focus:ring-indigo-200
-          focus:ring-opacity-50
 
-        "
-          /> */}
           <label htmlFor="password">password</label>
           <input
             value={pass}
