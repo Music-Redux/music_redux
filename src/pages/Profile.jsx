@@ -4,12 +4,8 @@ import TopChartsBar from "./TopChartsBar";
 // import  RelatedSongs from '../components'
 import { useAuthUser } from "react-auth-kit";
 import axios from "axios";
-import { HiOutlineCog } from "react-icons/hi";
-
 import PostCard from "../components/PostCard";
-import TopCharts from "./TopCharts";
 
-import { TopPlay } from "../components";
 import EditProfile from "../components/EditProfile";
 import ban from "../assets/ban5.jpg";
 import {
