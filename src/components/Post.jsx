@@ -29,7 +29,7 @@ export const Post = ({ post, user }) => {
         </div>
 
         <p className="text-white m-4 ml-0">{post?.description}</p> */}
-          <section class="bg-[#1e1e1e] dark:bg-gray-900 py-8 lg:py-16 ">
+          <section class="bg-[#1e1e1e] dark:bg-gray-900 py-8 ">
             <article class="p-6 text-base border-t border-[#BB2649] rounded-lg dark:bg-gray-900">
               <footer class="flex justify-between items-center mb-2">
                 <div class="flex items-center">

@@ -106,7 +106,7 @@ export const Register = (props) => {
   //   }
   return (
     <div className="contact relative flex flex-col  overflow-hidden">
-      <div className="w-full p-6 m-auto backdrop-blur-sm bg-[#BB264959] rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl mt-4">
+      <div className="w-full p-4 m-auto backdrop-blur-sm bg-[#BB264959] rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl mt-4">
         <h2 className="text-3xl font-semibold text-center uppercase text-white">
           Register
         </h2>
@@ -246,7 +246,7 @@ export const Register = (props) => {
               onChange={handleFileChange}
               className="
           w-full
-          block px-16 py-2 mt-2
+          block px-16  mt-2
           bg-[#fff]
      
 
@@ -259,20 +259,17 @@ export const Register = (props) => {
             className="
             w-full
             rounded-lg
+            transition-colors
+            duration-150
+            mt-5
+            mb-3
             bg-[#1e1e1e]
             text-white
-            transition-colors
-            duration-150 
-            bg-[#1e1e1e]
-            text-[#BB2649]
-            hover:bg-[#fff]
-            hover:text-[#1e1e1e]
-            mt-5
             font-bold
-            mb-6
+            hover:bg-[#bb264959]
           "
           >
-            Log In
+            Register{" "}
           </button>
         </form>
         <a className="text-white" href="/login">

@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useIsAuthenticated, useAuthUser } from "react-auth-kit";
 import axios from "axios";
@@ -16,11 +16,11 @@ const TopCharts = () => {
     method: "post",
     url: "http://localhost:8000/api/getfav",
     headers: {
-      'Accept': 'application/json',
-            'Content-Type': 'application/json'
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
     data: {
-      'user_id':user_id,
+      user_id: user_id,
     },
   };
 
@@ -28,13 +28,13 @@ const TopCharts = () => {
 
   if (error) return <Error />;
   // useEffect(() =>{
-    // 
+  //
   //   axios(configGetByUser).then(response=>
   //       {
-  //         //response.json() returns a promise as well 
-  //         // so we have to work with another then to get data 
+  //         //response.json() returns a promise as well
+  //         // so we have to work with another then to get data
   //         return response.data;
-    
+
   //     }).then(data=>{
   //       console.log(data);
   //       setUserFav(data.filter(item=>item.song_id == song.key? item.song_id:0));
@@ -45,7 +45,7 @@ const TopCharts = () => {
 
   return (
     <div className="flex flex-col">
-      <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
+      <h2 className="font-bold text-3xl text-white text-left mt-4 mb-4">
         Trending
       </h2>
 
@@ -53,7 +53,7 @@ const TopCharts = () => {
         {data.map((song, i) => (
           <SongCard
             key={song.key}
-            isFavp={userFav == song.key? true: false}
+            isFavp={userFav == song.key ? true : false}
             song={song}
             isPlaying={isPlaying}
             activeSong={activeSong}

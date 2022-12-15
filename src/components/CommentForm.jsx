@@ -47,13 +47,13 @@ export const CommentForm = ({ postId }) => {
             type="text"
             name="comment"
             placeholder="Write a comment"
-            className="w-1/2 p-3 rounded outline comment my-8"
+            className="w-1/2 p-1.5 rounded outline comment my-8"
             required
             onChange={(e) => {
               setComment(e.target.value);
             }}
           />
-          <button type="submit" className="text-white mx-2">
+          <button type="submit" className="text-white mx-1">
             comment
           </button>
         </form>
