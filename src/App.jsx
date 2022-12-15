@@ -15,11 +15,20 @@ import {
 } from "./pages";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
+import { useState } from "react";
+
 import Profile from "./pages/Profile";
 import { RequireAuth } from "react-auth-kit";
 
 const App = () => {
+  const [favorites, setfavorites] = useState([]);
   const { activeSong } = useSelector((state) => state.player);
+
+
+  const AddToFavorites = (activeSong) => {
+    const newFavorites = [...favorites, activeSong];
+    setfavorites(newFavorites)
+  }
 
   return (
     <div className="relative flex">
@@ -39,7 +48,7 @@ const App = () => {
 
               {/* <Route path="/profile" element={<Profile />} /> */}
               <Route path="/artists/:id" element={<ArtistDetails />} />
-              <Route path="/songs/:songid" element={<SongDetails />} />
+              <Route path="/songs/:songid" element={<SongDetails />} handleFavorites={AddToFavorites} />
               <Route path="/search/:searchTerm" element={<Search />} />
 
               <Route path="/login" element={<Login />} />

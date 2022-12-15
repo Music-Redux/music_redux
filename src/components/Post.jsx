@@ -24,7 +24,7 @@ export const Post = ({ post, user }) => {
           />
           <p className="text-white mt-2">
             {" "}
-            {user ? user["first-name"] + "  " + user["last-name"] : "test"}
+            {user ? user.name : "test"}
           </p>
         </div>
 
