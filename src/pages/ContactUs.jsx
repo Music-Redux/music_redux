@@ -113,9 +113,10 @@ const ContactUs = () => {
             transition-colors
             duration-150
             hover:bg-[#fff]
+            hover:text-black
             mt-5
             bg-[#1e1e1e]
-            text-[#BB2649]
+            text-white
             font-bold
           "
           >
