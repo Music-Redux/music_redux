@@ -31,7 +31,7 @@ const SongDetails = (fav) => {
 
   console.log(songData);
 
-  if (error) return <Error />;
+  // if (error) return <Error />;
 
   const handlePauseClick = () => {
     dispatch(playPause(false));

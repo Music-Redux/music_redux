@@ -46,24 +46,24 @@ export const Login = (props) => {
     return navigate("/");
   }
   return (
-    <div className="contact relative flex flex-col  min-h-screen  overflow-hidden ml-80">
-      <div className="auth-form-container w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl ml-8">
-        <h2 className="text-3xl font-semibold text-center uppercase ">Login</h2>
-        <form
-          className="register-form ContactForm mt-6"
-          onSubmit={handleSubmit}
-        >
-          <label htmlFor="email" className="text-black">
-            Email
-          </label>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            placeholder="youremail@gmail.com"
-            id="email"
-            name="email"
-            className="
+    <div className="contact relative flex flex-col  overflow-hidden">
+      <div className="w-full p-6 m-auto backdrop-blur-sm bg-[#BB264959] rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl mt-24">
+        <h2 className="text-3xl font-semibold text-center uppercase text-white">
+          Login
+        </h2>
+        <form className="ContactForm mt-6" onSubmit={handleSubmit}>
+          <div className="mb-2">
+            <label htmlFor="email" className="text-white">
+              Email
+            </label>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="youremail@gmail.com"
+              id="email"
+              name="email"
+              className="
           w-full
           block px-16 py-2 mt-2
           border-gray-300
@@ -74,18 +74,20 @@ export const Login = (props) => {
           focus:ring-indigo-200
           focus:ring-opacity-50
         "
-          />
-          <label htmlFor="password" className="text-black">
-            Password
-          </label>
-          <input
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
-            type="password"
-            placeholder="********"
-            id="password"
-            name="password"
-            className="
+            />
+          </div>
+          <div className="mb-2">
+            <label htmlFor="password" className="text-white">
+              Password
+            </label>
+            <input
+              value={pass}
+              onChange={(e) => setPass(e.target.value)}
+              type="password"
+              placeholder="********"
+              id="password"
+              name="password"
+              className="
           w-full
           block px-16 py-2 mt-2
           border-gray-300
@@ -97,28 +99,29 @@ export const Login = (props) => {
           focus:ring-opacity-50
 
         "
-          />
+            />
+          </div>
+
           <button
             type="submit"
             className="
-           rounded-lg
-           transition-colors
-           duration-150
-           focus:shadow-outline
-           hover:bg-indigo-800
-           mt-5
+            w-full
+            rounded-lg
+            transition-colors
+            duration-150
+            hover:bg-[#fff]
+            mt-5
+            bg-[#1e1e1e]
+            text-[#BB2649]
+            font-bold
+            mb-6
          "
-            style={{ backgroundColor: "#BB2649", color: "white" }}
           >
             Log In
           </button>
         </form>
-        <a
-          // className="link-btn"
-          // onClick={() => props.onFormSwitch("/register")}
-          href="/register"
-        >
-          New ? register here .
+        <a className="text-white" href="/register">
+          New member ? Register here .
         </a>
       </div>
     </div>
