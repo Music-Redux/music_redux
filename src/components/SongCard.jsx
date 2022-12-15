@@ -9,7 +9,7 @@ import { playPause, setActiveSong } from "../redux/features/playerSlice";
 import { useIsAuthenticated, useAuthUser } from "react-auth-kit";
 
 const SongCard = ({ song, isPlaying, activeSong, data, i, isFavp }) => {
-  // console.log(data[i]);
+  // console.log();
   const isAuthenticated = useIsAuthenticated();
   const dispatch = useDispatch();
   const auth = useAuthUser();
@@ -39,7 +39,7 @@ const SongCard = ({ song, isPlaying, activeSong, data, i, isFavp }) => {
 
   // console.log(activeSong.key);
   const [isFav, setIsFav] = useState(isFavp);
-
+console.log(isFav);
   const handlePauseClick = () => {
     dispatch(playPause(false));
   };
@@ -83,8 +83,9 @@ const SongCard = ({ song, isPlaying, activeSong, data, i, isFavp }) => {
   };
   return (
     <div className="flex flex-col  w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer bg-[#BB264959] ">
-    {isFav ? <HiHeart onClick={handleRemoveFromFav}  className='ml-8 e  heart w-8 h-8' />
-            : <HiOutlineHeart onClick={handleAddToFav}  className=' ml-8 heart w-8 h-8' />}
+    {isAuthenticated() ? (isFav ? <HiHeart onClick={handleRemoveFromFav}  className='ml-8 e  heart w-8 h-8' />
+            : <HiOutlineHeart onClick={handleAddToFav}  className=' ml-8 heart w-8 h-8' />):null}
+
       <div className="relative w-full h-56 group">
         
         <div

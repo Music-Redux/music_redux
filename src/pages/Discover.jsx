@@ -1,7 +1,8 @@
 /* eslint-disable */
-import React from "react";
+import {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useIsAuthenticated, useAuthUser } from "react-auth-kit";
+import axios from "axios";
 import {
   Error,
   Loader,
@@ -15,6 +16,10 @@ import { useGetSongsByGenreQuery } from "../redux/services/shazamCore";
 import { genres } from "../assets/constants";
 
 const Discover = () => {
+  const auth = useAuthUser();
+  const user_id = auth()?.id;
+  console.log(user_id);
+  const [userFav, setUserFav] = useState([]);
   const dispatch = useDispatch();
   const { genreListId } = useSelector((state) => state.player);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -27,6 +32,34 @@ const Discover = () => {
   if (error) return <Error />;
 
   const genreTitle = genres.find(({ value }) => value === genreListId)?.title;
+  var configGetByUser = {
+    method: "post",
+    url: "http://localhost:8000/api/getfav",
+    headers: {
+      'Accept': 'application/json',
+            'Content-Type': 'application/json'
+    },
+    data: {
+      'user_id':user_id,
+    },
+  };
+
+//   useEffect(() =>{
+    
+//     axios(configGetByUser).then(response=>
+//         {
+//           //response.json() returns a promise as well 
+//           // so we have to work with another then to get data 
+//           return response.data;
+    
+//       }).then(data=>{
+//         console.log(data);
+//         setUserFav(data.filter(item=>item.song_id ));
+        
+//       });
+// console.log(userFav);
+      // userFav!=0 ? setIsFav(true):null;
+  // },[genreListId,isPlaying,activeSong]);
 
   return (
     <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
@@ -55,6 +88,10 @@ const Discover = () => {
             {data?.map((song, i) => (
               <SongCard
                 key={song.key}
+                isFavp={ false
+                  // userFav.filter(item=> item== song.key? true: false)
+                 }
+// { console.log(song.key)}
                 song={song}
                 isPlaying={isPlaying}
                 activeSong={activeSong}
