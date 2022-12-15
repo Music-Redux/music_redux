@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
 /* Active Navigation Link */
 .active {
   /* @apply text-cyan-500; */
