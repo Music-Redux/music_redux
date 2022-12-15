@@ -27,21 +27,6 @@ const TopCharts = () => {
   if (isFetching) return <Loader title="Loading Top Charts" />;
 
   if (error) return <Error />;
-  // useEffect(() =>{
-    // 
-  //   axios(configGetByUser).then(response=>
-  //       {
-  //         //response.json() returns a promise as well 
-  //         // so we have to work with another then to get data 
-  //         return response.data;
-    
-  //     }).then(data=>{
-  //       console.log(data);
-  //       setUserFav(data.filter(item=>item.song_id == song.key? item.song_id:0));
-  //     });
-
-  //     // userFav!=0 ? setIsFav(true):null;
-  // },[]);
 
   return (
     <div className="flex flex-col">
