@@ -1,4 +1,7 @@
-import React from "react";
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
+/* eslint-disable quotes */
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
@@ -9,12 +12,34 @@ import {
   useGetSongRelatedQuery,
 } from "../redux/services/shazamCore";
 import { logo } from "../assets";
+import Favorite from "../components/Favorite";
+import axios from "axios";
+import { useState } from "react";
+import RemoveFavorite from "../components/RemoveFavorite";
 
 const SongDetails = () => {
   const dispatch = useDispatch();
   const { songid, id: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  // console.log(songid);
+  const [fav, setFav] = useState()
+
+  const user_id = 1;
+
+  const songDataFav = { user_id: user_id, song_id: songid }
+
+  // get all favorites from database where user id = const user id
+  // get song id
+  // eslint-disable-next-line object-curly-spacing
+
+  useEffect(() => {
+    axios.post('http://127.0.0.1:8000/api/getfav', { user_id: user_id }).then(res => {
+      let favArr = res.data.filter(e => e.song_id == songid);
+      setFav(favArr.length);
+    }).catch(err => { console.log(err) });
+  }, [])
+
+  console.log(songid);
+  // console.log(fav);
   // console.log(artistId);
   const {
     data,
@@ -27,7 +52,7 @@ const SongDetails = () => {
   if (isFetchingSongDetails && isFetchinRelatedSongs)
     return <Loader title="Searching song details" />;
 
-  // console.log(songData);
+  // console.log(songData.key);
 
   if (error) return <Error />;
 
@@ -39,10 +64,17 @@ const SongDetails = () => {
     dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
   };
+
   return (
     <div className="flex flex-col">
-      <DetailsHeader artistId={artistId} songData={songData} />
+      {console.log(fav, 'favvvv')}
+      {fav.length > 0 ? (
+        <Favorite songId={songid} userId={user_id} />
+      ) : (
 
+        <RemoveFavorite />
+      )}
+      <DetailsHeader artistId={artistId} songData={songData} />
       <div className="mb-10">
         <h2 className="text-white text-3xl font-bold">Lyrics:</h2>
 
