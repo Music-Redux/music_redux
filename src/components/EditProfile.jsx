@@ -9,8 +9,9 @@ const MODAL_STYLES = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  backgroundColor: "#FFF",
-  padding: "50px",
+  backgroundColor: "#bb264989",
+  borderRadius: "1.5rem",
+  padding: "5rem",
   zIndex: 1000,
 };
 
@@ -20,7 +21,7 @@ const OVERLAY_STYLES = {
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: "rgba(0, 0, 0, .7)",
+  backgroundColor: "rgba(30, 30, 30, 0.95)",
   zIndex: 1000,
 };
 
@@ -60,11 +61,14 @@ const EditProfile = ({ open, onClose, user }) => {
   return ReactDom.createPortal(
     <>
       <div style={OVERLAY_STYLES} />
-      <div style={MODAL_STYLES}>
+      <div
+        style={MODAL_STYLES}
+        className="w-full p-6 m-auto backdrop-blur-sm bg-[#BB264959] rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl"
+      >
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+          className="absolute top-3 right-2.5 text-white bg-transparent hover:bg-gray-200 hover:text-white rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-white dark:hover:text-[#BB2649]"
           data-modal-toggle="popup-modal"
         >
           <svg
@@ -83,112 +87,95 @@ const EditProfile = ({ open, onClose, user }) => {
           <span className="sr-only">Close modal</span>
         </button>
 
-        <div className="px-6 py-6 lg:px-8">
-          <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
+        <div className="">
+          <h3 className="font-semibold text-center uppercase text-white">
             Update Your Information
           </h3>
 
-          <form onSubmit={handleUpdateUser}>
-            <div className="grid md:grid-cols-2 md:gap-6">
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  name="floating_first_name"
-                  // id="floating_first_name"
-                  // className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  required
-                />
-                <label
-                  htmlFor="floating_first_name"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Name
-                </label>
-              </div>
-              {/* <div className="relative z-0 mb-6 w-full group">
-                <input
-                  type="text"
-                  vlaue={user["last-name"]}
-                  onChange={(e) => setlastName(e.target.vlaue)}
-                  name="floating_last_name"
-                  id="floating_last_name"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  required
-                />
-                <label
-                  htmlFor="floating_last_name"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Last name
-                </label>
-              </div> */}
-            </div>
 
-            <div className="relative z-0 mb-6 w-full group">
+          <form onSubmit={handleUpdateUser} className="ContactForm mt-6">
+            <div className="mb-2">
+              <label htmlFor="floating_first_name" className="text-white">
+                Name
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                name="floating_first_name"
+                placeholder="Name.."
+                className="
+                w-full
+          block px-16 py-2 mt-2
+          border-gray-300
+          rounded-md
+          shadow-sm
+          focus:border-indigo-300
+          focus:ring
+          focus:ring-indigo-200
+          focus:ring-opacity-50
+        "
+                required
+              />
+
+            </div>
+            <div className="mb-2">
+              <label htmlFor="floating_email" className="text-white">
+                Email
+              </label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setemail(e.target.value)}
                 name="floating_email"
+                placeholder="Email.."
                 id="floating_email"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                className="
+              w-full
+              block px-16 py-2 mt-2
+              border-gray-300
+              rounded-md
+              shadow-sm
+              focus:border-indigo-300
+              focus:ring
+              focus:ring-indigo-200
+              focus:ring-opacity-50
+            "
                 required
               />
-              <label
-                htmlFor="floating_email"
-                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Email address
-              </label>
             </div>
-            {/* <div className="relative z-0 mb-6 w-full group">
-              <input
-                type="file"
-                name="avatar"
-                id="avatar"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                required
-              />
-              <label
-                htmlFor="avatar"
-                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Your image
-              </label>
-            </div> */}
-            {/* <div className="relative z-0 mb-6 w-full group">
-              <input
-                type="password"
-                name="floating_password"
-                id="floating_password"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                required
-              />
-              <label
-                htmlFor="floating_password"
-                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Password
-              </label>
-            </div> */}
 
-            <button
-              data-modal-toggle="popup-modal"
-              type="submit"
-              className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
-            >
-              Update
-            </button>
-            <button
-              data-modal-toggle="popup-modal"
-              type="button"
-              onClick={onClose}
-              className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
-            >
-              Cancel
-            </button>
+            <div className="ml-24">
+              <button
+                data-modal-toggle="popup-modal"
+                type="submit"
+                className="
+             rounded-m
+             transition-colors
+             duration-150
+             hover:bg-[#fff]
+             mt-2
+             bg-[#1e1e1e]
+             text-[#BB2649]
+             font-bold
+             p-4
+             mr-12
+             outline
+             outline-[#1e1e1e]
+             "
+              >
+                Update
+              </button>
+              <button
+                data-modal-toggle="popup-modal"
+                type="button"
+                onClick={onClose}
+                className="text-white outline outline-white p-4 rounded-m mt-2"
+              >
+                Cancel
+              </button>
+            </div>
+
           </form>
         </div>
       </div>

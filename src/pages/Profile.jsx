@@ -17,7 +17,7 @@ const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [posts, setPosts] = useState();
   const [fav, setFav] = useState();
-  console.log(user);
+  console.log(auth());
   // retrieve data from the back end
   var config = {
     method: "get",
@@ -41,6 +41,7 @@ const Profile = () => {
 
   // console.log(posts);
   return (
+
     <>
       <MDBRow className=" h-100">
         <MDBCol lg="8" xl="8" style={{ backgroundColor: '#5C212' }}>
@@ -50,6 +51,35 @@ const Profile = () => {
                 <MDBCardImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZwsegc8jKXRGwkIEUIh19LZs422aMzEcXbs9DmqHpNF9BjeArIJNdaRBFOf5UZY_z2E&usqp=CAU"
                   alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', height: '150px', zIndex: '1' }} />
                 <MDBBtn
+
+    <div className="container ">
+      <div
+        className="section section-padding pb-0 "
+        style={{ color: "black", textAlign: "left", marginTop: "100px" }}
+      >
+        <section>
+          <div className="flex">
+            <img
+              className="w-40 h-40 rounded-full"
+              src={user?.avatar}
+              // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZwsegc8jKXRGwkIEUIh19LZs422aMzEcXbs9DmqHpNF9BjeArIJNdaRBFOf5UZY_z2E&usqp=CAU"
+              alt="Rounded avatar"
+            />
+
+            <div className="pt-10 pl-4">
+              <h2 className="font-bold text-3xl text-white text-left">
+                Welcome {user?.name}
+                {/* {user['last-name'] }  */}
+                {/* Manar Olimat  */}
+              </h2>
+              <p className="mt-1 text-sm text-gray-500">{user?.email}</p>
+              <span
+                id="badge-dismiss-default"
+                className="inline-flex items-center py-1 px-2 mr-2 text-sm font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-200 dark:text-blue-800"
+              >
+                Edit
+                <button
+
                   type="button"
                   onClick={() => setIsOpen(true)}
                   data-dismiss-target="#badge-dismiss-default"

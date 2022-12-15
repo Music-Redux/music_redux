@@ -1,7 +1,9 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-/* eslint-disable quotes */
+/* eslint-disable */
 import React, { useEffect } from "react";
+
+
+
+
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";

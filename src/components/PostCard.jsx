@@ -8,6 +8,8 @@ import {
 } from 'mdb-react-ui-kit';
 
 const PostCard = ({ post }) => {
+    // const navigate = useNavigate();
+
   return (
     <>
       <MDBCard className='mb-5' style={{ backgroundColor: '#61303B' }}>
