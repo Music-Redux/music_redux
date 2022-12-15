@@ -12,7 +12,13 @@
   /* @apply text-cyan-500; */
   color: #bb2649;
 }
-
+.heart{
+  color: #bb2649;
+  margin-left: 0px;
+  display: flex;
+  justify-content: end;
+  justify-items: end;
+}
 .bar:nth-child(2) {
   animation-delay: 0.2s;
 }
