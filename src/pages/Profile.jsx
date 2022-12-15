@@ -67,9 +67,10 @@ const Profile = () => {
                 style={{ width: "150px" }}
               >
                 <MDBCardImage
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZwsegc8jKXRGwkIEUIh19LZs422aMzEcXbs9DmqHpNF9BjeArIJNdaRBFOf5UZY_z2E&usqp=CAU"
+                  src={user.avatar}
+                  // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZwsegc8jKXRGwkIEUIh19LZs422aMzEcXbs9DmqHpNF9BjeArIJNdaRBFOf5UZY_z2E&usqp=CAU"
                   alt="Generic placeholder image"
-                  className="mt-4 mb-2 img-thumbnail"
+                  className="mt-4 mb-2  rounded-full"
                   fluid
                   style={{ width: "150px", height: "150px", zIndex: "1" }}
                 />

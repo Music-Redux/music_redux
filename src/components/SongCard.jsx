@@ -82,8 +82,11 @@ const SongCard = ({ song, isPlaying, activeSong, data, i, isFavp }) => {
       });
   };
   return (
-    <div className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer bg-[#BB264959] ">
+    <div className="flex flex-col  w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer bg-[#BB264959] ">
+    {isFav ? <HiHeart onClick={handleRemoveFromFav}  className='ml-8 e  heart w-8 h-8' />
+            : <HiOutlineHeart onClick={handleAddToFav}  className=' ml-8 heart w-8 h-8' />}
       <div className="relative w-full h-56 group">
+        
         <div
           className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${
             activeSong?.title === song.title
@@ -106,6 +109,7 @@ const SongCard = ({ song, isPlaying, activeSong, data, i, isFavp }) => {
             </a>
           )}
         </div>
+       
         <img
           alt="song_img"
           src={song.images?.coverart}
@@ -128,8 +132,7 @@ const SongCard = ({ song, isPlaying, activeSong, data, i, isFavp }) => {
           >
             {song.subtitle}
           </Link>
-          {isFav ? <HiHeart onClick={handleRemoveFromFav} color='red' className='ml-8 w-8 h-8' />
-            : <HiOutlineHeart onClick={handleAddToFav} color='red' className=' ml-8 w-8 h-8' />}
+         
         </p>
       </div>
     </div>
