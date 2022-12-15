@@ -50,6 +50,7 @@ const SongDetails = (fav) => {
         //  <h2 className="text-white text-3xl font-bold">{songData['title']}</h2>
         <SongCard 
         key={songData['key']}
+        isFavp={ true}
         song={songData}
         isPlaying={isPlaying}
         activeSong={activeSong}
