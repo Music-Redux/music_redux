@@ -39,36 +39,38 @@ const ContactUs = () => {
         <form onSubmit={handleOnSubmit} className="ContactForm mt-6">
           <div className="mb-2">
             <label>
-              <span className="text-white">Email</span>
-              <input
-                id="form-input-control-email"
-                label="Email"
-                name="user_email"
-                placeholder="Email.."
-                required
-                className="
-                w-full
-                block px-16 py-2 mt-2
-                border-gray-300
-                rounded-md
-                shadow-sm
-                focus:border-indigo-300
-                focus:ring
-                focus:ring-indigo-200
-                focus:ring-opacity-50
-              "
-              />
-            </label>
-          </div>
-          <div className="mb-2">
-            <label>
               <span className="text-white">Name</span>
-              <input
-                id="form-input-control-last-name"
-                name="user_name"
-                placeholder="Name.."
-                required
-                className="
+            </label>
+            <input
+              id="form-input-control-last-name"
+              name="user_name"
+              placeholder="Name.."
+              required
+              className="
+                w-full
+                block px-12 py-2 mt-2
+                border-gray-300
+                rounded-md
+                shadow-sm
+                focus:border-indigo-300
+                focus:ring
+                focus:ring-indigo-200
+                focus:ring-opacity-50
+              "
+            />
+          </div>
+          <div className="mb-2">
+            <label>
+              {" "}
+              <span className="text-white">Email</span>
+            </label>
+            <input
+              id="form-input-control-email"
+              label="Email"
+              name="user_email"
+              placeholder="Email.."
+              required
+              className="
                 w-full
                 block px-16 py-2 mt-2
                 border-gray-300
@@ -79,18 +81,20 @@ const ContactUs = () => {
                 focus:ring-indigo-200
                 focus:ring-opacity-50
               "
-              />
-            </label>
+            />
           </div>
+
           <div className="mb-2">
             <label>
+              {" "}
               <span className="text-white">Message</span>
-              <input
-                id="form-textarea-control-opinion"
-                name="user_message"
-                placeholder="Write your message.."
-                required
-                className="
+            </label>
+            <input
+              id="form-textarea-control-opinion"
+              name="user_message"
+              placeholder="Write your message.."
+              required
+              className="
                 block
                 w-full
                 mt-2 px-16 py-8
@@ -102,8 +106,7 @@ const ContactUs = () => {
                 focus:ring-indigo-200
                 focus:ring-opacity-50
               "
-              />
-            </label>
+            />
           </div>
           <button
             type="submit"
@@ -112,12 +115,11 @@ const ContactUs = () => {
             rounded-lg
             transition-colors
             duration-150
-            hover:bg-[#fff]
-            hover:text-black
             mt-5
             bg-[#1e1e1e]
             text-white
             font-bold
+            hover:bg-[#bb264959]
           "
           >
             Contact Us

@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useIsAuthenticated, useAuthUser } from "react-auth-kit";
 import axios from "axios";
@@ -16,11 +16,11 @@ const TopCharts = () => {
     method: "post",
     url: "http://localhost:8000/api/getfav",
     headers: {
-      'Accept': 'application/json',
-            'Content-Type': 'application/json'
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
     data: {
-      'user_id':user_id,
+      user_id: user_id,
     },
   };
 
@@ -28,9 +28,10 @@ const TopCharts = () => {
 
   if (error) return <Error />;
 
+
   return (
     <div className="flex flex-col">
-      <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
+      <h2 className="font-bold text-3xl text-white text-left mt-4 mb-4">
         Trending
       </h2>
 
@@ -38,7 +39,7 @@ const TopCharts = () => {
         {data.map((song, i) => (
           <SongCard
             key={song.key}
-            isFavp={userFav == song.key? true: false}
+            isFavp={userFav == song.key ? true : false}
             song={song}
             isPlaying={isPlaying}
             activeSong={activeSong}

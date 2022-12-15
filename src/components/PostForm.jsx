@@ -47,14 +47,14 @@ export const PostForm = () => {
           <input
             type="text"
             name="description"
-            placeholder="Post your feeling"
+            placeholder="What do you want to talk about?"
             className="w-3/4 p-3 rounded outline post"
             required
             onChange={(e) => {
               setDescription(e.target.value);
             }}
           />
-          <button type="submit" className="text-white mx-5 bg-[#bb2649]">
+          <button type="submit" className="text-white mx-2 bg-[#bb2649]">
             POST
           </button>
         </form>
