@@ -11,7 +11,9 @@ import TopCharts from "./TopCharts";
 
 import { TopPlay } from "../components";
 import EditProfile from "../components/EditProfile";
-import { logo } from "../assets";
+import ban from "../assets/ban5.jpg";
+import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
+
 
 const Profile = () => {
   const auth = useAuthUser();
@@ -43,6 +45,17 @@ const Profile = () => {
 
   // console.log(posts);
   return (
+
+    <>
+      <MDBRow className=" h-100">
+        <MDBCol lg="8" xl="8" style={{ backgroundColor: '#5C212' }}>
+          <MDBCard className="bg-gray-400">
+            <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url(${ban})`, backgroundSize: `cover`, height: '200px' }}>
+              <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
+                <MDBCardImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZwsegc8jKXRGwkIEUIh19LZs422aMzEcXbs9DmqHpNF9BjeArIJNdaRBFOf5UZY_z2E&usqp=CAU"
+                  alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', height: '150px', zIndex: '1' }} />
+                <MDBBtn
+
     <div className="container ">
       <div
         className="section section-padding pb-0 "
@@ -70,145 +83,77 @@ const Profile = () => {
               >
                 Edit
                 <button
+
                   type="button"
                   onClick={() => setIsOpen(true)}
-                  className="inline-flex items-center p-0.5 ml-2 text-sm text-blue-400 bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-300 dark:hover:text-blue-900"
                   data-dismiss-target="#badge-dismiss-default"
                   aria-label="Remove"
-                >
-                  <HiOutlineCog />
-                </button>
-              </span>
-
-              <EditProfile
-                open={isOpen}
-                onClose={() => setIsOpen(false)}
-                user={user}
-              />
+                  outline color="light" style={{ height: '36px', overflow: 'visible' }}>
+                  Edit profile  <span> &#9881; </span>
+                </MDBBtn>
+                <EditProfile
+                  open={isOpen}
+                  onClose={() => setIsOpen(false)}
+                  user={user}
+                />
+              </div>
+              <div className="ms-3" style={{ marginTop: '130px' }}>
+                <MDBTypography tag="h5" className="text-3xl">{user.name}</MDBTypography>
+              </div>
             </div>
-          </div>
+            <div className="p-4 text-white bg-gray-500" style={{ boxShadow: '0px 3px 15px 1px #5C212F99' }} >
+              <div className="d-flex justify-content-end text-center py-1">
+                <div className="px-3">
+                  <MDBCardText className="mb-1 h5">253</MDBCardText>
+                  <MDBCardText className="small  mb-0">Favorites</MDBCardText>
+                </div>
 
-          <div className="relative mx-auto  max-w-screen-xl px-4 py-8">
-            <div className="grid gap-4 lg:grid-cols-4 lg:items-start">
-              <div className="lg:col-span-3 ">
-                <h1 className="text-2xl font-bold text-white pb-4 lg:text-3xl">
-                  Your Posts
-                </h1>
+                <div>
+                  <MDBCardText className="mb-1 h5">42</MDBCardText>
+                  <MDBCardText className="small  mb-0">Posts</MDBCardText>
+                </div>
+              </div>
+            </div>
+            <MDBCardBody className="text-black p-4">
+              {/* <div className="mb-5">
+              <p className="lead fw-normal mb-1">About</p>
+              <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                <MDBCardText className="font-italic mb-1">Web Developer</MDBCardText>
+                <MDBCardText className="font-italic mb-1">Lives in New York</MDBCardText>
+                <MDBCardText className="font-italic mb-0">Photographer</MDBCardText>
+              </div>
+            </div> */}
+              <div className="d-flex justify-content-between align-items-center mb-4">
+                <MDBCardText className="lead fw-normal mb-0">Recent Posts</MDBCardText>
+              </div>
+              <MDBRow>
                 {posts?.map((item, i) => {
                   return <PostCard key={i} post={item} />;
-                  // console.log(item['description']);
-                  // <PostCard post={item} />
+
                 })}
-              </div>
+              </MDBRow>
 
-              {/* <div className="xl:sticky relative top-0 h-fit">
-            <TopPlay />
-          </div> */}
-              {/* side fav */}
-              <div className="lg:sticky lg:top-0">
-                <h1 className="text-2xl font-bold text-white pb-4 lg:text-3xl">
-                  Favorites
-                </h1>
-                {/* <RelatedSongs /> */}
-                {/* {console.log(fav[0].song_id)} */}
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+        <MDBCol xl="2" style={{ backgroundColor: '#5C212' }}>
+          <h1 className="text-2xl font-bold text-white pb-4 lg:text-3xl">
+            Favorites
+          </h1>
 
-                {fav
-                  ? fav.map((item) => (
-                      <TopChartsBar
-                        key={item["song_id"]}
-                        fav={item["song_id"]}
-                      />
-                    ))
-                  : null}
-
-                {/* <TopPlay /> */}
-                {/* <TopCharts /> */}
-                {/* <section>
-            <a
-  className="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
-  href=""
->
+          {fav
+            ? fav.map((item) => (
+              <TopChartsBar
+                key={item["song_id"]}
+                fav={item["song_id"]}
+              />
+            ))
+            : null}
+        </MDBCol>
+      </MDBRow>
 
 
-  <div className="mt-4 text-gray-500 sm:pr-8">
-    
-    <h3 className="mt-4 text-xl font-bold text-gray-900">Science of Chemistry</h3>
-
-    <p className="mt-2 hidden text-sm sm:block">
-      You can manage phone, email and chat conversations all from a single
-      mailbox.
-    </p>
-  </div>
-</a>
-
-            </section>
-
-            <section>
-            <a
-  className="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
-  href=""
->
-
-
-  <div className="mt-4 text-gray-500 sm:pr-8">
-    
-    <h3 className="mt-4 text-xl font-bold text-gray-900">Science of Chemistry</h3>
-
-    <p className="mt-2 hidden text-sm sm:block">
-      You can manage phone, email and chat conversations all from a single
-      mailbox.
-    </p>
-  </div>
-</a>
-
-            </section>
-
-            <section>
-            <a
-  className="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
-  href=""
->
-
-
-  <div className="mt-4 text-gray-500 sm:pr-8">
-    
-    <h3 className="mt-4 text-xl font-bold text-gray-900">Science of Chemistry</h3>
-
-    <p className="mt-2 hidden text-sm sm:block">
-      You can manage phone, email and chat conversations all from a single
-      mailbox.
-    </p>
-  </div>
-</a>
-
-            </section>
-
-            <section>
-            <a
-  className="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
-  href=""
->
-
-
-  <div className="mt-4 text-gray-500 sm:pr-8">
-    
-    <h3 className="mt-4 text-xl font-bold text-gray-900">Science of Chemistry</h3>
-
-    <p className="mt-2 hidden text-sm sm:block">
-      You can manage phone, email and chat conversations all from a single
-      mailbox.
-    </p>
-  </div>
-</a>
-
-            </section> */}
-              </div>
-              {/* //////////////////////////////////////////////// */}
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
+    </>
   );
 };
 
