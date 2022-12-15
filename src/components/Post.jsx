@@ -12,7 +12,7 @@ export const Post = ({ post, user }) => {
 
   return (
     <>
-      <div className="w-3/4 bg-[#1e1e1e] mt-5 border-2 border-rose-500 p-6 rounded-lg">
+      <div className="w-3/4 bg-[#1e1e1e] mt-2  p-6 rounded-lg">
         <div>
           {/* <img
             //u can read the image like this
@@ -29,25 +29,25 @@ export const Post = ({ post, user }) => {
         </div>
 
         <p className="text-white m-4 ml-0">{post?.description}</p> */}
-          <section class="bg-white dark:bg-gray-900 py-8 lg:py-16">
-            <article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
+          <section class="bg-[#1e1e1e] dark:bg-gray-900 py-8 lg:py-16 ">
+            <article class="p-6 text-base border-t border-[#BB2649] rounded-lg dark:bg-gray-900">
               <footer class="flex justify-between items-center mb-2">
                 <div class="flex items-center">
-                  <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                  <p class="inline-flex items-center mr-3 text-sm text-white dark:text-white">
                     <img
-                      class="mr-2 w-6 h-6 rounded-full"
+                      class="mr-2 w-16 h-16 rounded-full"
                       src={user?.avatar}
                       alt="Michael Gough"
                     />{" "}
                     {user ? user.name : "test"}
                   </p>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                  <p class="text-sm text-white dark:text-gray-400 ml-8">
                     <time
                       pubdate
                       datetime="2022-02-08"
                       title="February 8th, 2022"
                     >
-                      Feb. 8, 2022
+                      Dec. 15, 2022
                     </time>
                   </p>
                 </div>
@@ -56,11 +56,11 @@ export const Post = ({ post, user }) => {
                     id="dropdownComment1Button"
                     data-dropdown-toggle="dropdownComment1"
                     onClick={handleDropDown}
-                    class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    class="inline-flex items-center p-2 text-lg font-medium text-center hover:text-[#bb2649] rounded-lg text-white  dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     type="button"
                   >
                     <svg
-                      class="w-5 h-5"
+                      class="w-6 h-6"
                       aria-hidden="true"
                       fill="currentColor"
                       viewBox="0 0 20 20"
@@ -73,18 +73,18 @@ export const Post = ({ post, user }) => {
 
                   <div
                     id="dropdown"
-                    className={` z-9999 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 ${
+                    className={` z-9999 w-16 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 ${
                       isOpen ? "block" : "hidden"
                     }`}
                   >
                     <ul
-                      class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                      class="text-sm text-gray-700 dark:text-gray-200"
                       aria-labelledby="dropdownMenuIconHorizontalButton"
                     >
                       <li>
                         <a
                           href="#"
-                          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          class="block py-2 px-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Edit
                         </a>
@@ -92,7 +92,7 @@ export const Post = ({ post, user }) => {
                       <li>
                         <a
                           href="#"
-                          class="block py-2 px-4 hover:bg-gray-100 text-red-500 dark:hover:bg-gray-600 dark:hover:text-white"
+                          class="block py-2 px-2 hover:bg-gray-100 text-red-500 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Remove
                         </a>
@@ -135,10 +135,10 @@ export const Post = ({ post, user }) => {
             </div>
           </div> */}
               </footer>
-              <p class="text-gray-500 dark:text-gray-400">
+              <p class="text-white dark:text-gray-400 text-left">
                 {post?.description}
               </p>
-              <div class="flex items-center mt-4 space-x-4">
+              {/* <div class="flex items-center mt-4 space-x-4">
                 <button
                   type="button"
                   class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400"
@@ -160,10 +160,10 @@ export const Post = ({ post, user }) => {
                   </svg>
                   Reply
                 </button>
-              </div>
+              </div> */}
+              <CommentForm postId={post?.id} />
             </article>
           </section>
-          <CommentForm postId={post?.id} />
 
           {/* ///////////////////////////////////////// */}
           {/* <div className="dropdown">

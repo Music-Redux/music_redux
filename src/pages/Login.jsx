@@ -107,13 +107,13 @@ export const Login = (props) => {
             className="
             w-full
             rounded-lg
-            transition-colors
-            duration-150
-            hover:bg-[#fff]
-            hover:text-black
-            mt-5
             bg-[#1e1e1e]
             text-white
+            hover:bg-[#fff]
+            hover:text-[#1e1e1e]
+            transition-colors
+            duration-150
+            mt-5
             font-bold
             mb-6
          "

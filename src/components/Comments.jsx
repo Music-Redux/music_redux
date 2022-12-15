@@ -33,11 +33,14 @@ export const Comments = ({ postId, comment }) => {
   }, [comment]);
 
   return (
-    <div className="my-5">
-      {comments?.map((comment, i) => {
-        user = users.find((user) => user.id === comment.user_id);
-        return <Comment key={i} comment={comment} user={user} />;
-      })}
+    <div className="border-b border-[#bb2649]">
+      {comments
+        ?.slice()
+        .sort((a, b) => b.id - a.id)
+        .map((comment, i) => {
+          user = users.find((user) => user.id === comment.user_id);
+          return <Comment key={i} comment={comment} user={user} />;
+        })}
     </div>
   );
 };

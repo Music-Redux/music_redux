@@ -213,13 +213,13 @@ export const Register = (props) => {
             className="
             w-full
             rounded-lg
+            bg-[#1e1e1e]
+            text-white
             transition-colors
             duration-150
             hover:bg-[#fff]
-            hover:text-black
+            hover:text-[#1e1e1e]
             mt-5
-            bg-[#1e1e1e]
-            text-white
             font-bold
             mb-6
           "
