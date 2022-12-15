@@ -131,11 +131,11 @@ export const Post = ({ post, user }) => {
                                             </button>
                                         </div>
                                     </article>
+                                    </div>
                                 </section>
                                 <CommentForm postId={post?.id} />
-
+                                {/* </div> */}
                                 {/* ///////////////////////////////////////// */}
-
                             </div>
                         </div>
                     </>
