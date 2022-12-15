@@ -81,6 +81,7 @@ const Discover = () => {
                   {genre.title}
                 </option>
               ))}
+              {/*  */}
             </select>
           </div>
 
