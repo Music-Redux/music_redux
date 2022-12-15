@@ -92,6 +92,7 @@ const EditProfile = ({ open, onClose, user }) => {
             Update Your Information
           </h3>
 
+
           <form onSubmit={handleUpdateUser} className="ContactForm mt-6">
             <div className="mb-2">
               <label htmlFor="floating_first_name" className="text-white">
@@ -116,6 +117,7 @@ const EditProfile = ({ open, onClose, user }) => {
         "
                 required
               />
+
             </div>
             <div className="mb-2">
               <label htmlFor="floating_email" className="text-white">
@@ -142,6 +144,7 @@ const EditProfile = ({ open, onClose, user }) => {
                 required
               />
             </div>
+
             <div className="ml-24">
               <button
                 data-modal-toggle="popup-modal"
@@ -172,6 +175,7 @@ const EditProfile = ({ open, onClose, user }) => {
                 Cancel
               </button>
             </div>
+
           </form>
         </div>
       </div>
