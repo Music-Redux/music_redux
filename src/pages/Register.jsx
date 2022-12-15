@@ -260,12 +260,13 @@ export const Register = (props) => {
             w-full
             rounded-lg
             transition-colors
-            duration-150
+            duration-150 
+            bg-[#1e1e1e]
+            text-[#BB2649]
             hover:bg-[#fff]
             hover:text-black
             mt-5
-            bg-[#1e1e1e]
-            text-white
+           
             font-bold
             mb-6
           "
